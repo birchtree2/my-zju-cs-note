@@ -1945,8 +1945,8 @@
 <p><span class="arithmatex">\(p \leftrightarrow q \equiv \neg p \leftrightarrow \neg q\)</span></p>
 <p><span class="arithmatex">\(p \leftrightarrow q \equiv (p \wedge q)\vee(\neg p \wedge \neg q)\)</span></p>
 <p>第三条从真值表来看是显然的。但是也可以用上面的定律证,多次用分配律拆括号,然后用<span class="arithmatex">\(p \wedge \neg p=0\)</span>的性质</p>
-<p><img alt="16e787cd097c97b41794fd24cbcfbecf.png" src="../../_resources/16e787cd097c97b41794fd24cbcfbecf.png" /></p>
-<p><img alt="90b008e6b1bf4c41db72f664d6beaad4.png" src="../../_resources/90b008e6b1bf4c41db72f664d6beaad4.png" /></p>
+<p><img alt="16e787cd097c97b41794fd24cbcfbecf.png" src="../../../_resources/16e787cd097c97b41794fd24cbcfbecf.png" /></p>
+<p><img alt="90b008e6b1bf4c41db72f664d6beaad4.png" src="../../../_resources/90b008e6b1bf4c41db72f664d6beaad4.png" /></p>
 <p>Assume that the second proposition is false. Then <span class="arithmatex">\(q \to s=F,p \to r=T\)</span>. so <span class="arithmatex">\(q=T,s=F\)</span>. Enumerate all 3 cases of <span class="arithmatex">\(p,r\)</span>, then we can get <span class="arithmatex">\(p=F,q=T,r=F,s=F\)</span> as a counterexample.</p>
 <h3 id="satisfiability">Satisfiability</h3>
 <blockquote>
@@ -1955,12 +1955,12 @@
 <h3 id="normal-form">Normal Form</h3>
 <p>Literal: <span class="arithmatex">\(p\)</span> or <span class="arithmatex">\(\neg p\)</span></p>
 <p>Distributive Normal Form (DNF) : A formula is said to be in disjunctive normal form if it is written as a disjunction, in which all the terms are conjunctions of literals(a variable or its negation). etc. <span class="arithmatex">\((p \wedge \neg q)\vee r\)</span>.  We can also define Conjunctive Normal Form(CNF)
-<img alt="2e8077e251d71b7d0162226fca6b7375.png" src="../../_resources/2e8077e251d71b7d0162226fca6b7375.png" /></p>
-<p><img alt="d7d678adc8f3d20a71bfee418da7942a.png" src="../../_resources/d7d678adc8f3d20a71bfee418da7942a.png" /></p>
+<img alt="2e8077e251d71b7d0162226fca6b7375.png" src="../../../_resources/2e8077e251d71b7d0162226fca6b7375.png" /></p>
+<p><img alt="d7d678adc8f3d20a71bfee418da7942a.png" src="../../../_resources/d7d678adc8f3d20a71bfee418da7942a.png" /></p>
 <p>A minterm is a conjunction of literals in which each variable is represented <strong>exactly once</strong>. For<span class="arithmatex">\(p,q,r\)</span>  <span class="arithmatex">\(p \wedge q\)</span> s not a minterm.  <span class="arithmatex">\(p \wedge q  \wedge r\)</span> is a minterm.</p>
 <p><span class="arithmatex">\(2^n\)</span> minterms.</p>
 <p>Transforming into Full DNF:<strong>First  <span class="arithmatex">\(\wedge(p \vee \neg p)\)</span>, then use distributive law</strong></p>
-<p><img alt="2b401fa3fed571b89920f5aec6a0989a.png" src="../../_resources/2b401fa3fed571b89920f5aec6a0989a.png" /></p>
+<p><img alt="2b401fa3fed571b89920f5aec6a0989a.png" src="../../../_resources/2b401fa3fed571b89920f5aec6a0989a.png" /></p>
 <p><strong>Full</strong> DNF can be used to <strong>construct a proposition with a given truth table</strong>.  etc. proposition consisting of 3 variables p,q,r is true when exactly two variables are true. <span class="arithmatex">\((p \wedge q\wedge \neg r)\vee(p \wedge \neg q\wedge  r)\vee(\neg p \wedge q\wedge  r)\)</span>. Therefore, <strong>every compound proposition is logically equivalent to a full DNF.</strong></p>
 <ul>
 <li>
@@ -2057,7 +2057,7 @@ where the truth value of <span class="arithmatex">\(A\)</span> is not related to
 <p><span class="arithmatex">\(\forall x \exist y P(x,y) \neq \exist x \forall y P(x,y)\)</span>. etc. <span class="arithmatex">\(P(x,y)=x\)</span> loves <span class="arithmatex">\(y\)</span></p>
 <p>Negation: 交换符号、最后的条件否定</p>
 <p>Prenex Normal Form:</p>
-<p><img alt="b57e71faf9ccc5ca734fd0c945a10e74.png" src="../../_resources/b57e71faf9ccc5ca734fd0c945a10e74.png" /></p>
+<p><img alt="b57e71faf9ccc5ca734fd0c945a10e74.png" src="../../../_resources/b57e71faf9ccc5ca734fd0c945a10e74.png" /></p>
 <ol>
 <li>Get rid of arrowsImplication Law</li>
 <li>Move negative</li>
@@ -2077,8 +2077,8 @@ where the truth value of <span class="arithmatex">\(A\)</span> is not related to
 <p>or <span class="arithmatex">\(\exist x\forall y(P(x)\wedge(x\neq y \to \neg P(y)))\)</span></p>
 <p>Everyone except one <span class="arithmatex">\(x\)</span> that <span class="arithmatex">\(P(x)\)</span>. <span class="arithmatex">\(\exist x\forall y(x\neq y\leftrightarrow P(x))\)</span></p>
 <p>There is at least 2  <span class="arithmatex">\(\exist x \exist y (x \neq y \wedge P(x) \wedge P(y))\)</span></p>
-<p><img alt="8843f1a6e3bc564354568972396f41d3.png" src="../../_resources/8843f1a6e3bc564354568972396f41d3.png" /></p>
-<p><img alt="180dd8a23a5e5c5f9499f808d5aa5d13.png" src="../../_resources/180dd8a23a5e5c5f9499f808d5aa5d13.png" /></p>
+<p><img alt="8843f1a6e3bc564354568972396f41d3.png" src="../../../_resources/8843f1a6e3bc564354568972396f41d3.png" /></p>
+<p><img alt="180dd8a23a5e5c5f9499f808d5aa5d13.png" src="../../../_resources/180dd8a23a5e5c5f9499f808d5aa5d13.png" /></p>
 <p>翻译成英文之后不要出现x,y,z等字母</p>
 <h2 id="16-rule-of-inference">1.6 Rule of Inference ☆</h2>
 <p>Argument: A sequence of propositions: If <span class="arithmatex">\((p_1 \wedge p_2 \dots \wedge p_n)\to q\)</span> is tautology, then the argument is valid</p>
@@ -2086,13 +2086,13 @@ where the truth value of <span class="arithmatex">\(A\)</span> is not related to
 <span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}&amp;p_1\\&amp;p_2\\\ &amp;\dots\\&amp;p_n\\ &amp;\_\_\_\_\\ ∴&amp;q \end{aligned}\)</span>\)</span></p>
 <p>Trick:
 <span class="arithmatex">\(p_1\dots p_n(\text{premises}),(q \to r)(\text{conclusion}) \equiv p_1\dots p_n,q(\text{premises}) ,r\)</span></p>
-<p><img alt="bcef9efa3a970384b1881020a6a864f2.png" src="../../_resources/bcef9efa3a970384b1881020a6a864f2.png" /></p>
-<p><img alt="83fff811ac4e39ab9753856590b348a5.png" src="../../_resources/83fff811ac4e39ab9753856590b348a5.png" /></p>
+<p><img alt="bcef9efa3a970384b1881020a6a864f2.png" src="../../../_resources/bcef9efa3a970384b1881020a6a864f2.png" /></p>
+<p><img alt="83fff811ac4e39ab9753856590b348a5.png" src="../../../_resources/83fff811ac4e39ab9753856590b348a5.png" /></p>
 <p>Resolution:</p>
 <div class="arithmatex">\[((p \vee q)\wedge(\neg p \vee s)) \to (q\vee s)\]</div>
 <p><span class="arithmatex">\(p \vee q,\neg p \vee r ,\neg q \vee s\)</span>. 先对1,3，再对2用resolution</p>
 <h3 id="rules-of-inference-for-quantified-statements">Rules of inference for Quantified Statements</h3>
-<p><img alt="970e28c212d724abce7c882c87ebba1f.png" src="../../_resources/970e28c212d724abce7c882c87ebba1f.png" /></p>
+<p><img alt="970e28c212d724abce7c882c87ebba1f.png" src="../../../_resources/970e28c212d724abce7c882c87ebba1f.png" /></p>
 <p>A:<span class="arithmatex">\(\forall x \exist y P(x,y)\)</span>
 B:<span class="arithmatex">\(\exist x\forall y P(x,y)\)</span>
 A不能推出B，B可以推出A</p>

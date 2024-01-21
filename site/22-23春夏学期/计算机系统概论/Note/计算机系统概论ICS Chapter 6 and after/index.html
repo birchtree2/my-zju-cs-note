@@ -1833,7 +1833,7 @@ Overflow/Underflow</p>
 <p><img src="../../../_resources/9e9b8505e7cab0a16448bd7555783bed.png" alt="9e9b8505e7cab0a16448bd7555783bed.png" style="zoom:50%;" /></p>
 <p>x3000-xFE00</p>
 <p>memory-mapped I/O: 
-<img alt="1ff5d556297505bacf2e81f305ccbf46.png" src="../../../_resources/1ff5d556297505bacf2e81f305ccbf46.png" />
+<img alt="1ff5d556297505bacf2e81f305ccbf46.png" src="../../../../_resources/1ff5d556297505bacf2e81f305ccbf46.png" />
 - <strong>Address control logic 控制访问的是内存，还是设备寄存器</strong>
 - Addresses xFE00 to xFFFF are reserved for input/output device registers
 - <strong>KBDR <code>xFE02</code>  KBSR <code>xFE00</code></strong></p>
@@ -1850,7 +1850,7 @@ Overflow/Underflow</p>
 <p>Privilege: <strong>the right</strong> to do something, such as execute a particular instruction or access a particular memory location.</p>
 <p>Priority:  the urgency of a program to execute.</p>
 <p>两个概念没有关系。程序可以有高Priority,但低privilege(比如访问不了系统空间)</p>
-<p><img alt="635d1808aa47ed306de3532a50c85848.png" src="../../../_resources/635d1808aa47ed306de3532a50c85848.png" /></p>
+<p><img alt="635d1808aa47ed306de3532a50c85848.png" src="../../../../_resources/635d1808aa47ed306de3532a50c85848.png" /></p>
 <p><code>PSR[15]=0</code> <strong>means superisor privilege</strong>   <strong>注意0是supervisor,1才是用户</strong></p>
 <h3 id="basic-input-output">Basic Input-Output</h3>
 <p>异步asynchronous: 输入不会按CPU的时钟周期来</p>
@@ -1918,13 +1918,13 @@ Overflow/Underflow</p>
 </ol>
 <p>SP是当前的栈指针,一般用<code>R6</code></p>
 <p>Saved_SSP和Saved_USP是两个寄存器 (见Figure C.8</p>
-<p><img alt="789d9571643fe9697b3a7d6fc52d8f36.png" src="../../../_resources/789d9571643fe9697b3a7d6fc52d8f36.png" /></p>
+<p><img alt="789d9571643fe9697b3a7d6fc52d8f36.png" src="../../../../_resources/789d9571643fe9697b3a7d6fc52d8f36.png" /></p>
 <p>Trap访问内存3次(两个入栈，一个读取地址)</p>
 <h3 id="trap-vector">Trap vector及其功能</h3>
-<p><img alt="01be2b1f807bb4156e2ea7f88e1baaea.png" src="../../../_resources/01be2b1f807bb4156e2ea7f88e1baaea.png" /></p>
+<p><img alt="01be2b1f807bb4156e2ea7f88e1baaea.png" src="../../../../_resources/01be2b1f807bb4156e2ea7f88e1baaea.png" /></p>
 <p>mem[x0020]里面存的是x0300,对应输入操作的起始地址</p>
 <p>HALT把MCR的第一位设为0</p>
-<p><img alt="e613cdb8fa6bd32d6f5f699e1fb06448.png" src="../../../_resources/e613cdb8fa6bd32d6f5f699e1fb06448.png" /></p>
+<p><img alt="e613cdb8fa6bd32d6f5f699e1fb06448.png" src="../../../../_resources/e613cdb8fa6bd32d6f5f699e1fb06448.png" /></p>
 <h2 id="interrupt">Interrupt</h2>
 <p>Trap是软件请求操作系统接管（软中断)</p>
 <p>Interrupt是硬件(如IO)导致的中断   (硬中断)    </p>
