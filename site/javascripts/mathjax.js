@@ -1,9 +1,11 @@
 window.MathJax = {
+    loader: {load: ['[tex]/color']}, //\color标签
     tex: {
       inlineMath: [["\\(", "\\)"]],
       displayMath: [["\\[", "\\]"]],
       processEscapes: true,
-      processEnvironments: true
+      processEnvironments: true,
+      packages: {'[+]': ['color']} //\color标签
     },
     options: {
       ignoreHtmlClass: ".*|",

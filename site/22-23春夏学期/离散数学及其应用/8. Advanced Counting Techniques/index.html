@@ -1,1706 +1,723 @@
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      
-        <link rel="prev" href="../6.Counting/">
-      
-      
-        <link rel="next" href="../9.Relation_/">
-      
-      
-      <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
-    
-    
-      
-        <title>8. Advanced Counting Techniques - Shigure的笔记本</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
-      
-      
+<!DOCTYPE html>
 
-
-    
-    
-      
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    <body dir="ltr">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#recurrence-relations" class="md-skip">
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../6.Counting/" rel="prev"/>
+<link href="../9.Relation_/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.4" name="generator"/>
+<title>8. Advanced Counting Techniques - Shigure的笔记本</title>
+<link href="../../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#recurrence-relations">
           Skip to content
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-  
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Shigure的笔记本" class="md-header__button md-logo" aria-label="Shigure的笔记本" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Shigure的笔记本" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Shigure的笔记本">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             Shigure的笔记本
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               8. Advanced Counting Techniques
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-    
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
+</div>
+</div>
+</div>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
-    
-    
-  </nav>
-  
+</div>
+</div>
+</div>
+</div>
+</nav>
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Shigure的笔记本" class="md-nav__button md-logo" aria-label="Shigure的笔记本" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Shigure的笔记本" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Shigure的笔记本">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
     Shigure的笔记本
   </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
     Welcome to MkDocs
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
     22 23春夏学期
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
             22 23春夏学期
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+<span class="md-ellipsis">
     离散数学及其应用
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_1">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
             离散数学及其应用
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../1.Propositional%20Logic/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.Propositional%20Logic/">
+<span class="md-ellipsis">
     1.Propositional Logic
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../10.Graph_/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../10.Graph_/">
+<span class="md-ellipsis">
     10.Graph 
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11.Tree/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../11.Tree/">
+<span class="md-ellipsis">
     11.Tree
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2.Basic%20Structures/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2.Basic%20Structures/">
+<span class="md-ellipsis">
     2.Basic Structures
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../3.Algorithms/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../3.Algorithms/">
+<span class="md-ellipsis">
     3.Algorithms
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../4.Number%20Theory_/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../4.Number%20Theory_/">
+<span class="md-ellipsis">
     4.Number Theory 
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../5.Mathematical%20Induction/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../5.Mathematical%20Induction/">
+<span class="md-ellipsis">
     5.Mathematical Induction
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../6.Counting/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../6.Counting/">
+<span class="md-ellipsis">
     6.Counting
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
     8. Advanced Counting Techniques
   </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
     8. Advanced Counting Techniques
   </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#recurrence-relations" class="md-nav__link">
-    <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recurrence-relations">
+<span class="md-ellipsis">
       Recurrence Relations
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Recurrence Relations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#definition" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Recurrence Relations" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definition">
+<span class="md-ellipsis">
       Definition
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#example-problems" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-problems">
+<span class="md-ellipsis">
       Example Problems
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#solving-linear-recurrence-relations" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solving-linear-recurrence-relations">
+<span class="md-ellipsis">
       Solving Linear Recurrence Relations
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Solving Linear Recurrence Relations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linear-homogeneous-recurrence-relations-with-constant-coefficients" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Solving Linear Recurrence Relations" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linear-homogeneous-recurrence-relations-with-constant-coefficients">
+<span class="md-ellipsis">
       Linear Homogeneous Recurrence Relations with Constant Coefficients
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#linear-nonhomogeneous-recurrence-relations-with-constant-coefficients" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linear-nonhomogeneous-recurrence-relations-with-constant-coefficients">
+<span class="md-ellipsis">
       Linear Nonhomogeneous Recurrence Relations with Constant Coefficients
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#generating-functions" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generating-functions">
+<span class="md-ellipsis">
       Generating Functions
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Generating Functions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#definition-and-operation" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Generating Functions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definition-and-operation">
+<span class="md-ellipsis">
       Definition and operation
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#solve-counting-problems" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solve-counting-problems">
+<span class="md-ellipsis">
       Solve Counting Problems
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#solve-recurrence-relations" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solve-recurrence-relations">
+<span class="md-ellipsis">
       Solve recurrence relations
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#prove-combinatorial-identities" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prove-combinatorial-identities">
+<span class="md-ellipsis">
       Prove combinatorial identities
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#inclusion-exclusion-principle" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inclusion-exclusion-principle">
+<span class="md-ellipsis">
       Inclusion-Exclusion Principle
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Inclusion-Exclusion Principle">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#strling-number-of-the-second-kind" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Inclusion-Exclusion Principle" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#strling-number-of-the-second-kind">
+<span class="md-ellipsis">
       Strling number of the second kind
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#derangements" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#derangements">
+<span class="md-ellipsis">
       Derangements
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
+</ul>
 </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../9.Relation_/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../9.Relation_/">
+<span class="md-ellipsis">
     9.Relation 
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ZJU%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%202023%E6%98%A5%E5%A4%8F%E5%9B%9E%E5%BF%86%E9%A2%98/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ZJU%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%202023%E6%98%A5%E5%A4%8F%E5%9B%9E%E5%BF%86%E9%A2%98/">
+<span class="md-ellipsis">
     ZJU离散数学及其应用 2023春夏回忆题
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%5B%E7%BD%AE%E9%A1%B6%5D%E8%AF%BE%E7%A8%8B%E8%A6%81%E6%B1%82%E5%92%8C%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../%5B%E7%BD%AE%E9%A1%B6%5D%E8%AF%BE%E7%A8%8B%E8%A6%81%E6%B1%82%E5%92%8C%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/">
+<span class="md-ellipsis">
     [置顶]课程要求和参考资料
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E4%B8%8E%E5%8E%86%E5%B9%B4%E5%8D%B7%E9%A2%98%E7%9B%AE/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E4%B8%8E%E5%8E%86%E5%B9%B4%E5%8D%B7%E9%A2%98%E7%9B%AE/">
+<span class="md-ellipsis">
     离散数学期末复习与历年卷题目
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-ellipsis">
     计算机系统概论
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
             计算机系统概论
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/%5B%E7%BD%AE%E9%A1%B6%5D%E8%AF%BE%E7%A8%8B%E8%A6%81%E6%B1%82%E5%92%8C%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/%5B%E7%BD%AE%E9%A1%B6%5D%E8%AF%BE%E7%A8%8B%E8%A6%81%E6%B1%82%E5%92%8C%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/">
+<span class="md-ellipsis">
     [置顶]课程要求和参考资料
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+<span class="md-ellipsis">
     Note
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_2">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_2">
+<span class="md-nav__icon md-icon"></span>
             Note
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/Note/ICS%20Chapter%201-3/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/Note/ICS%20Chapter%201-3/">
+<span class="md-ellipsis">
     ICS Chapter 1 3
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/Note/ICS%20Chapter%204%20and%20Chapter%205_/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/Note/ICS%20Chapter%204%20and%20Chapter%205_/">
+<span class="md-ellipsis">
     ICS Chapter 4 and Chapter 5 
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/Note/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BAICS%20Chapter%206%20and%20after/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/Note/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BAICS%20Chapter%206%20and%20after/">
+<span class="md-ellipsis">
     计算机系统概论ICS Chapter 6 and after
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
     23 24秋冬学期
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
             23 24秋冬学期
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/">
+<span class="md-ellipsis">
     大学物理(乙)II
   </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
             大学物理(乙)II
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/%E5%85%89%E5%AD%A6/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/%E5%85%89%E5%AD%A6/">
+<span class="md-ellipsis">
     光学
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/%E7%A3%81%E5%9C%BA/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/%E7%A3%81%E5%9C%BA/">
+<span class="md-ellipsis">
     磁场
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/%E9%87%8F%E5%AD%90_/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/%E9%87%8F%E5%AD%90_/">
+<span class="md-ellipsis">
     量子 
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/%E9%9D%99%E7%94%B5%E5%9C%BA2_/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/%E9%9D%99%E7%94%B5%E5%9C%BA2_/">
+<span class="md-ellipsis">
     静电场2 
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/">
+<span class="md-ellipsis">
     大学物理实验
   </span>
-  
-
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
             大学物理实验
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+<span class="md-ellipsis">
     面向对象程序设计
   </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
             面向对象程序设计
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Class_/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Class_/">
+<span class="md-ellipsis">
     Class 
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Exception/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Exception/">
+<span class="md-ellipsis">
     Exception
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Functions/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Functions/">
+<span class="md-ellipsis">
     Functions
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Inheritance_/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Inheritance_/">
+<span class="md-ellipsis">
     Inheritance 
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Overloaded%20operator_/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Overloaded%20operator_/">
+<span class="md-ellipsis">
     Overloaded operator 
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Polymorphism/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Polymorphism/">
+<span class="md-ellipsis">
     Polymorphism
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Template/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Template/">
+<span class="md-ellipsis">
     Template
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%B7%9FOOP%E6%97%A0%E5%85%B3%E7%9A%84C%2B%2B%E7%89%B9%E6%80%A7/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%B7%9FOOP%E6%97%A0%E5%85%B3%E7%9A%84C%2B%2B%E7%89%B9%E6%80%A7/">
+<span class="md-ellipsis">
     跟OOP无关的C++特性
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-  </ul>
+</a>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#recurrence-relations" class="md-nav__link">
-    <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recurrence-relations">
+<span class="md-ellipsis">
       Recurrence Relations
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Recurrence Relations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#definition" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Recurrence Relations" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definition">
+<span class="md-ellipsis">
       Definition
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#example-problems" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-problems">
+<span class="md-ellipsis">
       Example Problems
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#solving-linear-recurrence-relations" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solving-linear-recurrence-relations">
+<span class="md-ellipsis">
       Solving Linear Recurrence Relations
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Solving Linear Recurrence Relations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linear-homogeneous-recurrence-relations-with-constant-coefficients" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Solving Linear Recurrence Relations" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linear-homogeneous-recurrence-relations-with-constant-coefficients">
+<span class="md-ellipsis">
       Linear Homogeneous Recurrence Relations with Constant Coefficients
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#linear-nonhomogeneous-recurrence-relations-with-constant-coefficients" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linear-nonhomogeneous-recurrence-relations-with-constant-coefficients">
+<span class="md-ellipsis">
       Linear Nonhomogeneous Recurrence Relations with Constant Coefficients
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#generating-functions" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generating-functions">
+<span class="md-ellipsis">
       Generating Functions
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Generating Functions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#definition-and-operation" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Generating Functions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definition-and-operation">
+<span class="md-ellipsis">
       Definition and operation
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#solve-counting-problems" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solve-counting-problems">
+<span class="md-ellipsis">
       Solve Counting Problems
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#solve-recurrence-relations" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solve-recurrence-relations">
+<span class="md-ellipsis">
       Solve recurrence relations
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#prove-combinatorial-identities" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prove-combinatorial-identities">
+<span class="md-ellipsis">
       Prove combinatorial identities
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#inclusion-exclusion-principle" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inclusion-exclusion-principle">
+<span class="md-ellipsis">
       Inclusion-Exclusion Principle
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Inclusion-Exclusion Principle">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#strling-number-of-the-second-kind" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Inclusion-Exclusion Principle" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#strling-number-of-the-second-kind">
+<span class="md-ellipsis">
       Strling number of the second kind
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#derangements" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#derangements">
+<span class="md-ellipsis">
       Derangements
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-
-  <h1>8. Advanced Counting Techniques</h1>
-
-<div class="toc">
-<ul>
-<li><a href="#recurrence-relations">Recurrence Relations</a><ul>
-<li><a href="#definition">Definition</a></li>
-<li><a href="#example-problems">Example Problems</a></li>
-<li><a href="#solving-linear-recurrence-relations">Solving Linear Recurrence Relations</a><ul>
-<li><a href="#linear-homogeneous-recurrence-relations-with-constant-coefficients">Linear Homogeneous Recurrence Relations with Constant Coefficients</a></li>
-<li><a href="#linear-nonhomogeneous-recurrence-relations-with-constant-coefficients">Linear Nonhomogeneous Recurrence Relations with Constant Coefficients</a></li>
-</ul>
 </li>
 </ul>
-</li>
-<li><a href="#generating-functions">Generating Functions</a><ul>
-<li><a href="#definition-and-operation">Definition and operation</a></li>
-<li><a href="#solve-counting-problems">Solve Counting Problems</a></li>
-<li><a href="#solve-recurrence-relations">Solve recurrence relations</a></li>
-<li><a href="#prove-combinatorial-identities">Prove combinatorial identities</a></li>
-</ul>
-</li>
-<li><a href="#inclusion-exclusion-principle">Inclusion-Exclusion Principle</a><ul>
-<li><a href="#strling-number-of-the-second-kind">Strling number of the second kind</a></li>
-<li><a href="#derangements">Derangements</a></li>
-</ul>
-</li>
-</ul>
+</nav>
 </div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>8. Advanced Counting Techniques</h1>
 <p>(这也不怎么advanced啊(笑))</p>
 <p><strong>本课程作业需要写出具体数字，但在考试中只要用<span class="arithmatex">\(C(m,n)\)</span>表示即可</strong></p>
 <h2 id="recurrence-relations">Recurrence Relations</h2>
@@ -1719,12 +736,12 @@
 <p><span class="arithmatex">\(s_n\)</span> is not zero, then <span class="arithmatex">\(s_{[1,n-1]}\)</span> must be a valid string, <span class="arithmatex">\(9s_{n-1}\)</span></p>
 </li>
 <li>
-<p><span class="arithmatex">\(s_n\)</span> is zero, then <span class="arithmatex">\(s_{[1,n-1]}\)</span> must contain odd number of 0. from the opposite side, <span class="arithmatex">\(10^{n-1}-a_{n-1}\)</span>
-    $$
-    a_n=8a_{n-1}+10^{n-1}
-    $$</p>
+<p><span class="arithmatex">\(s_n\)</span> is zero, then <span class="arithmatex">\(s_{[1,n-1]}\)</span> must contain odd number of 0. from the opposite side, <span class="arithmatex">\(10^{n-1}-a_{n-1}\)</span></p>
 </li>
 </ul>
+<div class="arithmatex">\[
+    a_n=8a_{n-1}+10^{n-1}
+    \]</div>
 <blockquote>
 <p>The number of bit strings of length <span class="arithmatex">\(n\)</span> that contain 3 consecutive 0s</p>
 </blockquote>
@@ -1769,19 +786,19 @@
 <p>​        <span class="arithmatex">\(r_1=r_2\)</span>, <span class="arithmatex">\((p_1+p_2n)r_1^n\)</span></p>
 </blockquote>
 <p>总结 <strong>m重根r的待定系数</strong><span class="arithmatex">\((p_1+p_2n+\dots p_mn^{\color{red}{m-1}})r^n\)</span></p>
-<p><img alt="468d55839451e561ea5e3450564a1c0c.png" src="../../../_resources/468d55839451e561ea5e3450564a1c0c.png" /></p>
+<p><img alt="468d55839451e561ea5e3450564a1c0c.png" src="..\..\..\_resources/468d55839451e561ea5e3450564a1c0c.png"/></p>
 <h4 id="linear-nonhomogeneous-recurrence-relations-with-constant-coefficients">Linear Nonhomogeneous Recurrence Relations with Constant Coefficients</h4>
 <div class="arithmatex">\[
 a_n=c_1a_{n-1}+\dots c_ka_{n-k}+f(n)\\
 \]</div>
-<p><strong>associated homogeneous recurrence relation</strong>
-$$
+<p><strong>associated homogeneous recurrence relation</strong></p>
+<div class="arithmatex">\[
 a_n=c_1a_{n-1}+\dots c_ka_{n-k}
-$$
-Every solution is <strong>the sum of</strong> a <strong>particular solution</strong> and a solution of the <strong>associated</strong> linear homogeneous recurrence relation.</p>
+\]</div>
+<p>Every solution is <strong>the sum of</strong> a <strong>particular solution</strong> and a solution of the <strong>associated</strong> linear homogeneous recurrence relation.</p>
 <p>证明类似线性代数里解非齐次线性方程组的思想。<span class="arithmatex">\(AX_0=c\)</span>叠加上<span class="arithmatex">\(AX=0\)</span>,得到<span class="arithmatex">\(A(X+X_0)=c\)</span>.</p>
 <p>However,finding the particular solution is difficult. But for <strong>some certain type of</strong> <span class="arithmatex">\(f(n)\)</span>, there is a easy solution.
-<img alt="573d72f6d825ab37511d4cb0fab31fcf.png" src="../../../_resources/573d72f6d825ab37511d4cb0fab31fcf.png" /></p>
+<img alt="573d72f6d825ab37511d4cb0fab31fcf.png" src="..\..\..\_resources/573d72f6d825ab37511d4cb0fab31fcf.png"/></p>
 <p>总结：解非齐次线性递推式的过程</p>
 <ol>
 <li>
@@ -1803,11 +820,11 @@ Every solution is <strong>the sum of</strong> a <strong>particular solution</str
 </li>
 </ol>
 <blockquote>
-<p>etc<img alt="60c867b458f9243a60d4a3cef289020b.png" src="../../../_resources/60c867b458f9243a60d4a3cef289020b.png" /></p>
+<p>etc<img alt="60c867b458f9243a60d4a3cef289020b.png" src="..\..\..\_resources/60c867b458f9243a60d4a3cef289020b.png"/></p>
 </blockquote>
 <p>一个易错的情况是<span class="arithmatex">\(F(n)=多项式\)</span>. 如<span class="arithmatex">\(a_n=a_{n-1}+n\)</span>. 对应特征方程的解是<span class="arithmatex">\(r=c\)</span>是任意实数. <span class="arithmatex">\(1\)</span>显然是特征方程的根, 所以待定系数是<span class="arithmatex">\(\color{red}{n}(p_1n+p_2)\)</span></p>
 <blockquote>
-<p><img src="C:\Users\19808\AppData\Roaming\Typora\typora-user-images\image-20230505100630775.png" alt="image-20230505100630775" style="zoom:200%;" /></p>
+<p><img alt="image-20230505100630775" src="C:\Users\19808\AppData\Roaming\Typora\typora-user-images\image-20230505100630775.png" style="zoom:200%;"/></p>
 </blockquote>
 <p><span class="arithmatex">\(c2^n+n(pn+q)\)</span></p>
 <h2 id="generating-functions">Generating Functions</h2>
@@ -1822,12 +839,14 @@ Every solution is <strong>the sum of</strong> a <strong>particular solution</str
 <blockquote>
 <p>Eg. <span class="arithmatex">\(\{a_k\}\)</span> has the generating function <span class="arithmatex">\(A(x)\)</span>, find the generating function of <span class="arithmatex">\(b_n=\sum_{k=1}^n a_k\)</span> </p>
 </blockquote>
-<p><span class="arithmatex">\(b_n=\sum_{k=1}^n a_k=\sum_{k=1}^n a_kc_{n-k}(c_k\equiv1)\)</span>  </p>
+<p><span class="arithmatex">\(b_n=\sum_{k=1}^n a_k=\sum_{k=1}^n a_kc_{n-k}(c_k\equiv1)\)</span> </p>
 <p><span class="arithmatex">\(B(x)=\frac{A(x)}{1-x}\)</span></p>
 <blockquote>
 <p><span class="arithmatex">\(b_0=a_0^2,b_1=2a_1a_0,b_2=a_1^2+2a_0a_2\dots, B(x)=A^2(x)\)</span> </p>
 <p>注意有限项的生成函数,如<span class="arithmatex">\((1+x)^n\)</span></p>
+</blockquote>
 <div class="arithmatex">\[\sum_{k=0}^{m-1}x^k=\frac{1-x^m}{1-x}\]</div>
+<blockquote>
 <p>Eg. <span class="arithmatex">\(a_n=C(10,n+1)\)</span>. <span class="arithmatex">\(\sum_{n=0}^\infin C(10,n+1)x^n=\frac{1}{x}\sum_{n=1}^\infin C(10,n)x^n=\frac{(1+x)^{10}-1}{x}\)</span></p>
 </blockquote>
 <p>根据数列求生成函数</p>
@@ -1846,22 +865,21 @@ Every solution is <strong>the sum of</strong> a <strong>particular solution</str
 </blockquote>
 <p>法一: <span class="arithmatex">\(\sum_{n\geq 0}(n+1)x^n=(\sum_{n \geq 0}x^{n+1})'=\frac{1}{(1-x)^2}\)</span></p>
 <p>法二(卷积): <span class="arithmatex">\(b_n=1\)</span>, <span class="arithmatex">\(a_n=\sum_{k=0}^nb_kb_{n-k}\)</span>.</p>
-<blockquote>
+<blockquote></blockquote>
 <div class="arithmatex">\[\boxed{a_n=C(m+n-1,m-1),f(x)=\frac{1}{(1-x)^m}}\]</div>
-</blockquote>
-<p>Extended binomial Theorem（本质是<span class="arithmatex">\((1+x)^a\)</span>的泰勒级数) 根据
-$$
+<p>Extended binomial Theorem（本质是<span class="arithmatex">\((1+x)^a\)</span>的泰勒级数) 根据</p>
+<div class="arithmatex">\[
 (1+x)^a=\sum_{k=0}^{\infin} \frac{a(a-1)\dots (a-k+1)}{k!}x^k=\sum_{k=0}^{\infin}\binom{a}{k}x^k(a \in \mathbb{R})
-$$
-展开<span class="arithmatex">\((1+x)^{-n}\)</span>即可</p>
+\]</div>
+<p>展开<span class="arithmatex">\((1+x)^{-n}\)</span>即可</p>
 <blockquote>
 <p><span class="arithmatex">\(\color{red}{广义二项式定理的变式：}\)</span> <span class="arithmatex">\(a_n=C(n,2)\)</span></p>
 </blockquote>
 <p><span class="arithmatex">\(f(x)=\sum_{n \geq 2}C(n,2)x^{n-}=x^2\sum_{n \geq 0}C(n+2,2)x^n=\frac{x^2}{(1-x)^3}\)</span></p>
 <blockquote>
-<p>Eg. <img alt="2f523c996537a343c7ecd72b4dccc542.png" src="../../../_resources/2f523c996537a343c7ecd72b4dccc542.png" /></p>
+<p>Eg. <img alt="2f523c996537a343c7ecd72b4dccc542.png" src="..\..\..\_resources/2f523c996537a343c7ecd72b4dccc542.png"/></p>
 </blockquote>
-<p><img alt="24f61e69ce336c16e582d21cae107c42.png" src="../../../_resources/24f61e69ce336c16e582d21cae107c42.png" /></p>
+<p><img alt="24f61e69ce336c16e582d21cae107c42.png" src="..\..\..\_resources/24f61e69ce336c16e582d21cae107c42.png"/></p>
 <h3 id="solve-counting-problems">Solve Counting Problems</h3>
 <p><span class="arithmatex">\(x^k\)</span> (k is the "size" of element)</p>
 <blockquote>
@@ -1880,11 +898,11 @@ $$
 <blockquote>
 <p><strong>！！！</strong>2r red balls, 2r blue balls ,2r white balls. How many ways to select 3r balls?</p>
 </blockquote>
-<p><span class="arithmatex">\((1+x+\dots x^{2r})^3=\frac{(1-x^{2r+1})^3}{(1-x)^3}\)</span>
-$$
+<p><span class="arithmatex">\((1+x+\dots x^{2r})^3=\frac{(1-x^{2r+1})^3}{(1-x)^3}\)</span></p>
+<div class="arithmatex">\[
 =\frac{1-3x^{2r+1}}{(1-x)^3}+\frac{3x^{4r+2}-x^{6r+3}}{(1-x)^3}
-$$
-后面两项次数至少<span class="arithmatex">\(4r+2&gt;3r\)</span><strong>不考虑</strong>. 第一项中<span class="arithmatex">\(x^{3r}\)</span>系数<span class="arithmatex">\(C(3r+3-1,3-1)\)</span>. 第二项中因为系数平移<span class="arithmatex">\(-3C((3r-(2r+1))+2,2)\)</span></p>
+\]</div>
+<p>后面两项次数至少<span class="arithmatex">\(4r+2&gt;3r\)</span><strong>不考虑</strong>. 第一项中<span class="arithmatex">\(x^{3r}\)</span>系数<span class="arithmatex">\(C(3r+3-1,3-1)\)</span>. 第二项中因为系数平移<span class="arithmatex">\(-3C((3r-(2r+1))+2,2)\)</span></p>
 <p>因此答案是<span class="arithmatex">\(C(3r+2,2)-3C(r+1,2)\)</span></p>
 <blockquote>
 <p><code>$1,$2,$5</code> to pay <code>$r</code> 
@@ -1898,19 +916,19 @@ the order matters</p>
 <li>解出A(x)此时应该是封闭形式</li>
 <li>将封闭形式展开成幂级数形式,第n项系数即为答案</li>
 </ol>
-<p><img alt="a14deb652d5ac8cdb0c2fc6e54ea925a.png" src="../../../_resources/a14deb652d5ac8cdb0c2fc6e54ea925a.png" /></p>
-<p><img alt="97342966fd802b4cb6a31c43b14d1e19.png" src="../../../_resources/97342966fd802b4cb6a31c43b14d1e19.png" /></p>
+<p><img alt="a14deb652d5ac8cdb0c2fc6e54ea925a.png" src="..\..\..\_resources/a14deb652d5ac8cdb0c2fc6e54ea925a.png"/></p>
+<p><img alt="97342966fd802b4cb6a31c43b14d1e19.png" src="..\..\..\_resources/97342966fd802b4cb6a31c43b14d1e19.png"/></p>
 <h3 id="prove-combinatorial-identities">Prove combinatorial identities</h3>
 <h2 id="inclusion-exclusion-principle">Inclusion-Exclusion Principle</h2>
 <blockquote>
-<p><img alt="b66e311ceb13aba3476944caf5123e9f.png" src="../../../_resources/b66e311ceb13aba3476944caf5123e9f.png" /></p>
+<p><img alt="b66e311ceb13aba3476944caf5123e9f.png" src="..\..\..\_resources/b66e311ceb13aba3476944caf5123e9f.png"/></p>
 </blockquote>
 <p>捆绑法。注意两个字符串不能有字母相同</p>
 <h3 id="strling-number-of-the-second-kind">Strling number of the second kind</h3>
-<p>n个不同元素分到m个不可区分的集合里，每个集合非空
-$$
+<p>n个不同元素分到m个不可区分的集合里，每个集合非空</p>
+<div class="arithmatex">\[
 S(n,m)=\frac{1}{m!}\sum_{k=0}^m (-1)^kC_m^k (m-k)^n
-$$</p>
+\]</div>
 <div class="arithmatex">\[
 S(r,2)=\frac{2^n-2}{2}\\ S(r,r-1)=C(r,2)\\ S(r+1,n)=S(r,n-1)+nS(r,n)
 \]</div>
@@ -1926,16 +944,16 @@ to four different employees so that each employee is assigned at least one job a
 <h3 id="derangements">Derangements</h3>
 <p>(错排问题)</p>
 <p>A derangement is a permutation of objects that leaves no object in its original position</p>
-<p>$$
+<div class="arithmatex">\[
 D_n=n!\sum_{k=0}^n{\frac{(-1)^k}{k!}}
-$$
-枚举固定的k个元素,其他元素的排法就是<span class="arithmatex">\(C(n,k)(n-k)!=\frac{n!}{k!}\)</span></p>
+\]</div>
+<p>枚举固定的k个元素,其他元素的排法就是<span class="arithmatex">\(C(n,k)(n-k)!=\frac{n!}{k!}\)</span></p>
 <p>性质：</p>
-<p><span class="arithmatex">\(\lim_{n \to \infin}\frac{D_n}{n!}=\frac{1}{e}\)</span>
-$$
+<p><span class="arithmatex">\(\lim_{n \to \infin}\frac{D_n}{n!}=\frac{1}{e}\)</span></p>
+<div class="arithmatex">\[
 D_n=(n-1)(D_{n-1}+D_{n-2})
-$$
-1不能在第一个位置，设排列第一个位置是数字<span class="arithmatex">\(k\)</span>,有n-1种取法。</p>
+\]</div>
+<p>1不能在第一个位置，设排列第一个位置是数字<span class="arithmatex">\(k\)</span>,有n-1种取法。</p>
 <ul>
 <li>
 <p>如果1到了第k个位置,那么剩下n-2个位置错排即可,<span class="arithmatex">\(D_{n-2}\)</span></p>
@@ -1949,63 +967,33 @@ $$
 <p>arran0,1,2,3,4,5,  no odd digit is in its original position</p>
 </blockquote>
 <p>枚举有几个奇数在原来的位置, <span class="arithmatex">\(6!-C(3,1)5!+C(3,2)4!-C(3,3)3!\)</span></p>
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
+</article>
+</div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
     </a>
-  
 </div>
-      
-    </div>
-  </div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-    
-    
-      <script src="../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
-      
-        <script src="../../../javascripts/mathjax.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
 </html>

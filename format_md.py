@@ -30,13 +30,45 @@ def upd_md(directory, replace_dict):
                     f.write(content)
 
 # 指定目录路径
-md_dir = "./docs/23-24秋冬学期/大学物理(乙)II/静电场2_"
-html_dir = "./site/23-24秋冬学期/大学物理(乙)II/静电场2_"
+md_dir = "./docs/"
+html_dir = "./site/"
 # 指定替换字典表
 replace_dict = {
-    '\\oiint': '\\oint'
+    '\\oiint': '\\oint',
+    '\\infin': '\infty',
+    '\\exist': '\\exists'
     # '\\iint': '\\int\\int',
 }
+
+def calculate_relative_path(image_path, html_dir):
+    image_dir = os.path.dirname(image_path)
+    relative_path = os.path.relpath(image_dir, html_dir)
+    num_levels = len(relative_path.split(os.sep))
+    return num_levels
+
+def modify_image_paths(html_dir):
+    for root, dirs, files in os.walk(html_dir):
+        for file in files:
+            if file.endswith(".html"):
+                file_path = os.path.join(root, file)
+                with open(file_path, "r", encoding='utf-8') as f:
+                    soup = BeautifulSoup(f, "html.parser")
+                    # 处理 img 标签的 src 属性
+                    for img in soup.find_all("img"):
+                        src = img["src"]
+                        if src.startswith(".."):
+                            #计算当前文件位置和根目录的偏差
+                            num_levels = calculate_relative_path(file_path, html_dir)
+                            cleaned_src = src.lstrip('../')  #去掉前面的../
+                            modified_src = os.path.join(*([".."] * num_levels), cleaned_src) #加上正确的../个数
+                            # print(file_path,cleaned_src,html_dir,num_levels,modified_src)
+                            img["src"] = modified_src
+                with open(file_path, "w", encoding='utf-8') as f:
+                    f.write(str(soup))
+
+
+
+
 
 if __name__ == "__main__":
     #处理markdown文件
@@ -44,21 +76,9 @@ if __name__ == "__main__":
     #调用mkdocs
     subprocess.run(["mkdocs", "build"])
     # 处理 HTML 文件
-    
-    for filename in os.listdir(html_dir):
-        if filename.endswith(".html"):
-            file_path = os.path.join(html_dir, filename)
-            with open(file_path, "r",encoding='utf-8') as f:
-                soup = BeautifulSoup(f, "html.parser")
-                # 处理 img 标签的 src 属性
-                for img in soup.find_all("img"):
-                    src = img["src"]
-                    if src.startswith(".."):
-                        img["src"] = "../" + src
-            with open(file_path, "w",encoding='utf-8') as f:
-                f.write(str(soup))
+    modify_image_paths(html_dir)
 
-    # 推送到 Git 仓库
-    subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", "Update site"])
-    subprocess.run(["git", "push"])
+    # # 推送到 Git 仓库
+    # subprocess.run(["git", "add", "."])
+    # subprocess.run(["git", "commit", "-m", "Update site"])
+    # subprocess.run(["git", "push"])
