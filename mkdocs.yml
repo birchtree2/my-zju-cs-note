@@ -3,7 +3,7 @@ theme:
   name: material
   features:
     - content.code.copy #代码块支持复制
-    - navigation.indexes #
+    - navigation.indexes #index.md 设置每个栏目的介绍
 plugins: 
   - search #搜索
 
