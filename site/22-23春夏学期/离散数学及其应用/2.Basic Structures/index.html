@@ -1,0 +1,2044 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../11.Tree/">
+      
+      
+        <link rel="next" href="../3.Algorithms/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>2.Basic Structures - Shigure的笔记本</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#21-definition-of-set" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Shigure的笔记本" class="md-header__button md-logo" aria-label="Shigure的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Shigure的笔记本
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.Basic Structures
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Shigure的笔记本" class="md-nav__button md-logo" aria-label="Shigure的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Shigure的笔记本
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    22 23春夏学期
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            22 23春夏学期
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    离散数学及其应用
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            离散数学及其应用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.Propositional%20Logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.Propositional Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.Graph_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10.Graph 
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.Tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11.Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2.Basic Structures
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2.Basic Structures
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-definition-of-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Definition of Set
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Definition of Set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#power-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power set
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-set-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Set Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Set Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cartesian-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartesian Product
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classification-of-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classification of Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cardinality-of-infinite-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cardinality of Infinite Sets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cardinality of Infinite Sets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition-of-cardinality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition of cardinality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countable-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Countable Sets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Countable Sets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cantor-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cantor Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties-of-countable-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties of Countable Sets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cantor-diagonalization-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cantor Diagonalization Argument.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schroder-bernstein-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schroder-Bernstein Theorem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cantors-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cantor's Theorem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-continuum-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Continuum Hypothesis(连续统假设)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.Algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.Number%20Theory_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.Number Theory 
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.Mathematical%20Induction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.Mathematical Induction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.Counting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.Counting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Advanced%20Counting%20Techniques/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Advanced Counting Techniques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.Relation_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9.Relation 
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZJU%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%202023%E6%98%A5%E5%A4%8F%E5%9B%9E%E5%BF%86%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ZJU离散数学及其应用 2023春夏回忆题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B%E7%BD%AE%E9%A1%B6%5D%E8%AF%BE%E7%A8%8B%E8%A6%81%E6%B1%82%E5%92%8C%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [置顶]课程要求和参考资料
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E4%B8%8E%E5%8E%86%E5%B9%B4%E5%8D%B7%E9%A2%98%E7%9B%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    离散数学期末复习与历年卷题目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机系统概论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            计算机系统概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/%5B%E7%BD%AE%E9%A1%B6%5D%E8%AF%BE%E7%A8%8B%E8%A6%81%E6%B1%82%E5%92%8C%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [置顶]课程要求和参考资料
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Note
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Note
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/Note/ICS%20Chapter%201-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ICS Chapter 1 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/Note/ICS%20Chapter%204%20and%20Chapter%205_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ICS Chapter 4 and Chapter 5 
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/Note/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BAICS%20Chapter%206%20and%20after/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机系统概论ICS Chapter 6 and after
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    23 24秋冬学期
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            23 24秋冬学期
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    大学物理(乙)II
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            大学物理(乙)II
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/%E5%85%89%E5%AD%A6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    光学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    磁场
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/%E9%87%8F%E5%AD%90_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    量子 
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29II/%E9%9D%99%E7%94%B5%E5%9C%BA2_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    静电场2 
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    大学物理实验
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            大学物理实验
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    面向对象程序设计
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            面向对象程序设计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Class_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Class 
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Exception/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exception
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Inheritance_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inheritance 
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Overloaded%20operator_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overloaded operator 
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Polymorphism/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polymorphism
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../23-24%E7%A7%8B%E5%86%AC%E5%AD%A6%E6%9C%9F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%B7%9FOOP%E6%97%A0%E5%85%B3%E7%9A%84C%2B%2B%E7%89%B9%E6%80%A7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    跟OOP无关的C++特性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-definition-of-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Definition of Set
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Definition of Set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#power-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power set
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-set-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Set Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Set Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cartesian-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartesian Product
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classification-of-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classification of Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cardinality-of-infinite-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cardinality of Infinite Sets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cardinality of Infinite Sets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition-of-cardinality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition of cardinality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countable-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Countable Sets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Countable Sets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cantor-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cantor Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties-of-countable-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties of Countable Sets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cantor-diagonalization-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cantor Diagonalization Argument.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schroder-bernstein-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schroder-Bernstein Theorem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cantors-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cantor's Theorem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-continuum-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Continuum Hypothesis(连续统假设)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>2.Basic Structures</h1>
+
+<div class="toc">
+<ul>
+<li><a href="#21-definition-of-set">2.1 Definition of Set</a><ul>
+<li><a href="#power-set">Power set</a></li>
+</ul>
+</li>
+<li><a href="#22-set-operations">2.2 Set Operations</a><ul>
+<li><a href="#identity">Identity</a></li>
+<li><a href="#cartesian-product">Cartesian Product</a></li>
+</ul>
+</li>
+<li><a href="#23-functions">2.3 Functions</a><ul>
+<li><a href="#classification-of-functions">Classification of Functions</a></li>
+</ul>
+</li>
+<li><a href="#cardinality-of-infinite-sets">Cardinality of Infinite Sets</a><ul>
+<li><a href="#definition-of-cardinality">Definition of cardinality</a></li>
+<li><a href="#countable-sets">Countable Sets</a><ul>
+<li><a href="#cantor-table">Cantor Table</a></li>
+<li><a href="#properties-of-countable-sets">Properties of Countable Sets</a></li>
+<li><a href="#cantor-diagonalization-argument">Cantor Diagonalization Argument.</a></li>
+</ul>
+</li>
+<li><a href="#schroder-bernstein-theorem">Schroder-Bernstein Theorem</a></li>
+<li><a href="#cantors-theorem">Cantor's Theorem</a></li>
+<li><a href="#the-continuum-hypothesis">The Continuum Hypothesis(连续统假设)</a></li>
+<li><a href="#applications">Applications</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="21-definition-of-set">2.1 Definition of Set</h2>
+<p>Let S be a set. If there are exactly n distinct elements in <span class="arithmatex">\(S\)</span> where n is a nonnegative integer, we say that S is a <strong>finite set</strong> and that n is the <strong>cardinality</strong> of <span class="arithmatex">\(S\)</span> . <span class="arithmatex">\(|S|\)</span></p>
+<p>Subset</p>
+<h3 id="power-set">Power set</h3>
+<p><span class="arithmatex">\(\mathcal{P}(S)=\{x|x \subseteq S\}\)</span></p>
+<ul>
+<li><span class="arithmatex">\(x \in P(S) \to x \subseteq S\)</span></li>
+<li><span class="arithmatex">\(x \in S \to \{x\} \subseteq S\)</span></li>
+<li><span class="arithmatex">\(|S|=n \to |\mathcal{P}(S)|=2^n\)</span></li>
+</ul>
+<p><span class="arithmatex">\(\mathcal{P}(\emptyset)=\{\emptyset\}\)</span></p>
+<p><span class="arithmatex">\(\mathcal{P}(\{\emptyset\})=\{\emptyset,\{\emptyset\}\}\)</span></p>
+<p><strong>Prove theorems of power sets.</strong></p>
+<blockquote>
+<p><span class="arithmatex">\(A\subseteq B \leftrightarrow P(A)\subseteq P(B)\)</span>.</p>
+</blockquote>
+<p>Proof:  the subset of <span class="arithmatex">\(A\)</span> is also subset of B, so <span class="arithmatex">\(P(A)\subseteq  P(B)\)</span>.
+if <span class="arithmatex">\(P(A) \subseteq P(B)\)</span> ,because <span class="arithmatex">\(A \in P(A)\)</span> (by definition), then <span class="arithmatex">\(A \in P(B)\)</span>(properties of subset),then <span class="arithmatex">\(A \subseteq B\)</span>(by definition of subset)</p>
+<blockquote>
+<p><span class="arithmatex">\(A=B \leftrightarrow P(A)=P(B)\)</span>.</p>
+<p><span class="arithmatex">\(P(A) \in P(B)\to A \in B\)</span></p>
+</blockquote>
+<p>注意用这两条定义进行<span class="arithmatex">\(\in\)</span> 和<span class="arithmatex">\(\subseteq\)</span>之间的转换</p>
+<h2 id="22-set-operations">2.2 Set Operations</h2>
+<p>symmetric difference <span class="arithmatex">\((A\cup B)-(A\cap B)\)</span></p>
+<h3 id="identity">Identity</h3>
+<p><span class="arithmatex">\((A-B)=A\cap\bar{B}\)</span></p>
+<p><span class="arithmatex">\(A \cap (A \cup B)=A\)</span>. 对应之前的absorption<span class="arithmatex">\(p \wedge(p \vee q)=p\)</span>, 用集合的语言看更显然
+<img alt="b95edb0e54be401f2db35c05bafd0962.png" src="../../_resources/b95edb0e54be401f2db35c05bafd0962.png" />
+<img alt="33a2b4215f6b633f175908ee637d8922.png" src="../../_resources/33a2b4215f6b633f175908ee637d8922.png" /></p>
+<h3 id="cartesian-product">Cartesian Product</h3>
+<div class="arithmatex">\[A × (B∩C) = (A×B) ∩ (A×C),\\
+A × (B∪C) = (A×B) ∪ (A×C), \\
+A × (B - C) = (A×B) - (A×C)\\ \boxed{\overline{A\times B}=(\bar{A}\times \bar{B})\cup (\bar{A}\times B)\cup (A\times \bar{B})}\]</div>
+<p>可以用二维坐标系的方法表示<img alt="1c7d0d72dbf7fcf64aff9daeb762c2cf.png" src="../../_resources/1c7d0d72dbf7fcf64aff9daeb762c2cf.png" /></p>
+<h2 id="23-functions">2.3 Functions</h2>
+<p><span class="arithmatex">\(f:A \to B\)</span></p>
+<p>Domain: <span class="arithmatex">\(A\)</span>   Preimage:<span class="arithmatex">\(a\)</span></p>
+<p>Codomain: <span class="arithmatex">\(B\)</span>.  Image:<span class="arithmatex">\(b\)</span></p>
+<p><strong>Range</strong> of <span class="arithmatex">\(f\)</span>( <span class="arithmatex">\(\{f(x)|x\in A\}\)</span>)</p>
+<p><span class="arithmatex">\(f(S)=\{f(x)|x \in S\}(S \subseteq A)\)</span></p>
+<p><span class="arithmatex">\(f(A \cup B)=f(A)\cup f(B)\)</span> Proof: 注意证明集合相等的方法
+<img alt="65a341dbdbb598689edd7b211607a28b.png" src="../../_resources/65a341dbdbb598689edd7b211607a28b.png" />
+<span class="arithmatex">\(f(A \cap B)\subseteq f(A) \cap f(B)\)</span></p>
+<p>etc .<span class="arithmatex">\(f(x)=x^2(x \in \mathbb{R}),A=\{x \leq 0\},B=\{x \geq 0\}\)</span></p>
+<p>The Graph of Functions <span class="arithmatex">\(\{(a,b)|a \in A \wedge f(a)=b\}\)</span></p>
+<h3 id="classification-of-functions">Classification of Functions</h3>
+<ul>
+<li><strong>One-to-One(injective)</strong> <span class="arithmatex">\(\forall a\forall b(f(a)=f(b)\to a=b)\)</span> </li>
+<li><strong>Onto(surjective)</strong> <span class="arithmatex">\(\forall b \in B\exist a \in A(f(a)=b)\)</span></li>
+<li>Both one to one and onto(<strong>bijective</strong>/<strong>one-to-one correspondence</strong>) If bijective, then A  and B have same cardinality</li>
+</ul>
+<p><img alt="8eb6b6695fccb8c56be66320170f0d38.png" src="../../_resources/8eb6b6695fccb8c56be66320170f0d38.png" />
+Inverse Function: requires bijection</p>
+<p><span class="arithmatex">\(f(x)=\frac{x+1}{x+2}\)</span> bijection,but not <span class="arithmatex">\(\mathbb R\)</span> to <span class="arithmatex">\(\mathbb R\)</span>
+ ### Special Functions</p>
+<p><span class="arithmatex">\([x]\)</span></p>
+<p>证明性质的方法： <span class="arithmatex">\(x=n+\varepsilon\)</span></p>
+<h2 id="cardinality-of-infinite-sets">Cardinality of Infinite Sets</h2>
+<h3 id="definition-of-cardinality">Definition of cardinality</h3>
+<p>if and only if <span class="arithmatex">\(f:A \to B\)</span>. <span class="arithmatex">\(f\)</span> is a <strong>bijection</strong>, then <span class="arithmatex">\(|A|=|B|\)</span></p>
+<p>if <span class="arithmatex">\(f: A \to B\)</span>, <span class="arithmatex">\(f\)</span> is an <strong>injection</strong>, then <span class="arithmatex">\(|A| \leq |B|\)</span></p>
+<p>If <span class="arithmatex">\(|A| \leq |B|\)</span> and <span class="arithmatex">\(|A| \neq |B|\)</span>. then <span class="arithmatex">\(|A|&lt;|B|\)</span></p>
+<blockquote>
+<p>Example: prove <span class="arithmatex">\(|(a,b)|\)</span>=<span class="arithmatex">\(|(0,1)|\)</span></p>
+<p><span class="arithmatex">\(f(x)=a+(b-a)x\)</span> is bijective</p>
+<p><span class="arithmatex">\(A\subset B\)</span>, then <span class="arithmatex">\(|A|\leq |B|\)</span></p>
+</blockquote>
+<p>可以取等,比如偶数和正整数</p>
+<h3 id="countable-sets">Countable Sets</h3>
+<p>A set that is either <strong>finite</strong> or has the same cardinality as the set of positive integers called <strong>countable.</strong>
+When an infinite set <span class="arithmatex">\(S\)</span> is countable, we denote the cardinality of <span class="arithmatex">\(S\)</span> by <span class="arithmatex">\(\aleph_0\)</span> ( <strong>aleph null</strong> <span class="arithmatex">\()\)</span>.
+If <span class="arithmatex">\(|A|=\left|\mathbb{Z}^{+}\right|\)</span>, the set <span class="arithmatex">\(A\)</span> is <strong>countable infinite</strong>.</p>
+<blockquote>
+<p>Example: prove <span class="arithmatex">\(\mathbb{Z}\)</span> is countable</p>
+<p>Try to rearrange the elements in a sequence. For example 0,1,-1,2,-2,3,-3...</p>
+<p><span class="arithmatex">\(f(n)=\begin{cases}\frac{n}{2},n =2k \\ -(n-1)/2,n=2k+1\\\end{cases}\)</span></p>
+</blockquote>
+<h4 id="cantor-table">Cantor Table</h4>
+<blockquote>
+<p>Example: prove <span class="arithmatex">\(\mathbb{Q}^+\)</span> is countable</p>
+</blockquote>
+<p>Let <span class="arithmatex">\(r=\frac{p}{q} \in\mathbb{Q^+},p,q \in \mathbb{Z}^+\)</span>.   <span class="arithmatex">\(S=\{(p,q)\}=\mathbb{Z}^+ \times \mathbb{Z}^+, f(r)=(p,q)\)</span></p>
+<p>Then <span class="arithmatex">\(f: \mathbb{Q}^+ \to S\)</span> is one to one.</p>
+<p>so <span class="arithmatex">\(|\mathbb{Q}^+| \leq |S|\)</span></p>
+<p>Because <span class="arithmatex">\(\mathbb{Z^+}\subset \mathbb{Q}^+\)</span>, so <span class="arithmatex">\(|\mathbb{Z^+}|\leq |\mathbb{Q}^+|\)</span></p>
+<p>We only need  to prove <span class="arithmatex">\(|S|=|\mathbb{Z}^+|\)</span>(aka <span class="arithmatex">\(Z^+ \times Z^+\)</span> is countable)
+<img src="../../_resources/af6911994c6471e6dae617a1578a65cf.png" alt="af6911994c6471e6dae617a1578a65cf.png" style="zoom:67%;" /></p>
+<p>For every pair (p,q), <span class="arithmatex">\(n=\frac{(p+q-2)(p+q-1)}{2}+q\)</span> is a bijection. so <span class="arithmatex">\(|S|=|\mathbb{Z}^+|\)</span></p>
+<blockquote>
+<p>Show that the set of the real numbers with decimal representations consisting of all 1s is countable</p>
+</blockquote>
+<p><img alt="3c43098254c73b73045c347c39a80438.png" src="../../_resources/3c43098254c73b73045c347c39a80438.png" />
+ 每一行的整数部分相同。每一列的小数部分相同(除了第一行,因为没有.0所以错开了)</p>
+<h4 id="properties-of-countable-sets">Properties of Countable Sets</h4>
+<blockquote>
+<ul>
+<li><strong>No infinite set has a smaller cardinality than a countable set</strong></li>
+<li>The union of two countable sets is countable. </li>
+<li>The union of <strong>countable</strong> numbers of countable sets is countable. For example, <span class="arithmatex">\(Z^+\times Z^+\)</span> is countable</li>
+</ul>
+</blockquote>
+<p>Proof:</p>
+<ol>
+<li>
+<p>Suppose that<span class="arithmatex">\(|A|&lt;|Z^+|\)</span> , <span class="arithmatex">\(f:A \to Z^+\)</span> is one-to-one.Because the range of <span class="arithmatex">\(f\)</span> must be infinite. <span class="arithmatex">\(\forall n \in Z^+\)</span>, we can always find the <span class="arithmatex">\(n^{\text{th}}\)</span>  smallest element <span class="arithmatex">\(m\)</span> in the range of <span class="arithmatex">\(f\)</span>.  Because <span class="arithmatex">\(f\)</span> is one-to-one, there exist a unique <span class="arithmatex">\(x\)</span> that <span class="arithmatex">\(f(x)=m\)</span> . so <span class="arithmatex">\(g(n)=x\)</span> is a bijection. <span class="arithmatex">\(|A|=|Z^+|\)</span>, contradiction!.</p>
+</li>
+<li>
+<p>List the elements as <span class="arithmatex">\(a_1,b_1,a_2,b_2\dots\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(A_i=\{a_{i1},a_{i2}\dots\}\)</span> . List the elements as <span class="arithmatex">\(a_{11},a_{12},a_{21},a_{13},a_{22},a_{31}\)</span></p>
+</li>
+</ol>
+<h4 id="cantor-diagonalization-argument">Cantor Diagonalization Argument.</h4>
+<p>Construct an object that is <strong>not a member of countable</strong> set. 用于证明集合不可数</p>
+<blockquote>
+<p>The set of real numbers in <span class="arithmatex">\((0,1)\)</span> is uncountable</p>
+</blockquote>
+<p><span class="arithmatex">\(f: \mathbb{Z}^+ \to A=\frac{1}{n+1}\)</span> is one-to-one, so <span class="arithmatex">\(|\mathbb{Z}^+| \leq |A|\)</span>.  We need to prove <span class="arithmatex">\(|\mathbb{Z}^+| \neq |A|\)</span></p>
+<p>Assume <span class="arithmatex">\(A\)</span> is countable, then let <span class="arithmatex">\(A=\left\{r_1,r_2\dots r_n\right\}\)</span>
+Represent each real number in the list using its decimal expansion. e.g., <span class="arithmatex">\(1 / 3=.3333333 \ldots . . . . ., 1 / 2=.5000000 \ldots . . . . \text{but not }0.4999999 . . . \ldots .\)</span>.
+$$
+\begin{aligned}
+&amp; r_1=0 . d_{11} d_{12} d_{13} d_{14} d_{15} d_{16} \cdots \
+&amp; r_2=0 . d_{21} d_{22} d_{23} d_{24} d_{25} d_{26} \cdots \
+&amp; r_3=0 . d_{31} d_{32} d_{33} d_{34} d_{35} d_{36} \cdots
+\end{aligned}
+$$
+Now construct the number <span class="arithmatex">\(x=0 . x_1 x_2 x_3 x_4 x_5 x_6 x_7 \ldots\)</span>
+$$
+\begin{aligned}
+&amp; x_i=3 \text { if } d_{i i} \neq 3 \
+&amp; x_i=4 \text { if } d_{i i}=3
+\end{aligned}
+$$
+Then <span class="arithmatex">\(x\)</span> is not equal to any number in the list.(Because it has at least one digit different from <span class="arithmatex">\(r_i\)</span>. For example, for <span class="arithmatex">\(r_1\)</span>, <span class="arithmatex">\(x_1 \neq d_{11}\)</span>)
+Hence, no such list can exist and hence the interval <span class="arithmatex">\((0,1)\)</span> is uncountable</p>
+<blockquote>
+<p>Example. Show that the set of the real numbers with decimal representations consisting of all 1s or 9s is uncountable(<strong>all 1s or 9s是指由1和9组成，如0.1919</strong>。不只是全1或全9)</p>
+</blockquote>
+<p><span class="arithmatex">\(x_i=\begin{cases} 1,d_{ii}=9 \\ 9,d_{ii}=1 \text{\ or }d_{ii} \text{does not exist} \end{cases}\)</span></p>
+<h3 id="schroder-bernstein-theorem">Schroder-Bernstein Theorem</h3>
+<blockquote>
+<p><strong>Schroder-Bernstein Theorem</strong>: <span class="arithmatex">\(|A| \leq |B|\)</span> and <span class="arithmatex">\(|B| \leq |A|\)</span>, then <span class="arithmatex">\(|A|=|B|\)</span>. </p>
+</blockquote>
+<p>Only need to find two one-to-one functions. </p>
+<blockquote>
+<p>Example 1: <span class="arithmatex">\(|(0,1)|=|\mathbb{R}|\)</span> </p>
+</blockquote>
+<p>Method 1: <span class="arithmatex">\(f(x)=\tan x(|x| \leq \pi/2)\)</span> is bijection <span class="arithmatex">\(|(-\pi/2,\pi/2)|=|\mathbb{R}|\)</span>. and <span class="arithmatex">\(|(a,b)|=|(0,1)|\)</span></p>
+<p>Method 2: Use Schroder-Bernstein Theorem:  <span class="arithmatex">\(f(x)=x((0,1)\to \mathbb{R})\)</span> is one to one.  <span class="arithmatex">\(f(x)=\frac{1}{1+e^{-x}}(\mathbb{R}\to (0,1))\)</span> is one-to one.</p>
+<blockquote>
+<p>Example 2: <span class="arithmatex">\(|[0,1]|=|\mathbb{R}|\)</span></p>
+</blockquote>
+<p>We can also use<span class="arithmatex">\(f(x)=x\)</span>  and <span class="arithmatex">\(f(x)=\frac{1}{1+e^{-x}}\)</span> . because <span class="arithmatex">\(f\)</span> is not required to be onto.</p>
+<blockquote>
+<p>Example 3: <span class="arithmatex">\(|[0,1]|=|(0,1)|\)</span></p>
+</blockquote>
+<p><span class="arithmatex">\(f(x)=\frac{1}{3}+\frac{1}{3}x\)</span> from <span class="arithmatex">\([0,1]\to [1/3,2/3]\)</span>.</p>
+<blockquote>
+<p>Example 4: The set of <strong>infinite</strong> subset of positive integers is uncountable.</p>
+<p>aka. <span class="arithmatex">\(|\mathcal{P}(\mathbb{Z}^+)|=|\mathbb{R}|\)</span></p>
+</blockquote>
+<p><span class="arithmatex">\(S\in \mathcal{P}(\mathbb{Z^+})\)</span>.  <span class="arithmatex">\(d_i=\begin{cases}0,i \notin S \\ 1,i \in S \end{cases}\)</span>  <span class="arithmatex">\(f(S)=0.d_1d_2\dots d_n \in (0,1)\)</span></p>
+<p>For <span class="arithmatex">\(x \in (0,1)\)</span>, use the <strong>binary</strong> expansion <span class="arithmatex">\(x=0.d_1d_2\dots d_n\)</span>.(use 0.110000...instead of 0.1011111..)</p>
+<p>Then by Schroder-Bernstein Theorem, <span class="arithmatex">\(|\mathcal{P}(\mathbb{Z}^+)|=|(0,1)|=|\mathbb{R}|\)</span></p>
+<blockquote>
+<p>However,the set of <strong>finite</strong> subset of positive integers is countable</p>
+</blockquote>
+<p><span class="arithmatex">\(\{a_1,a_2\dots a_n\}\to 2^{a_1}+2^{a_2}+\dots 2^{a_n}\)</span> (because the set is finite,the integer exists)</p>
+<p>This function(<span class="arithmatex">\(S\to Z^+\)</span>) is one-to-one and onto.(onto because base 2,use binary expansion of every integer). So <span class="arithmatex">\(|S|=|Z^+|\)</span></p>
+<p><a href="https://math.stackexchange.com/questions/200389/show-that-the-set-of-all-finite-subsets-of-mathbbn-is-countable">ref</a></p>
+<h3 id="cantors-theorem">Cantor's Theorem</h3>
+<blockquote>
+<p><strong>Cantor's Theorem</strong>:  <span class="arithmatex">\(|S|&lt; |\mathcal{P}(S)|\)</span></p>
+</blockquote>
+<p>Proof: <span class="arithmatex">\(f(x)=\{x\}\)</span> is one to one. so <span class="arithmatex">\(|S| \leq |\mathcal{P}(S)|\)</span>. We only need to prove that <span class="arithmatex">\(|S|\neq |\mathcal{P}(S)|\)</span>. For all <span class="arithmatex">\(f:S \to \mathcal{P}(S)\)</span> , <span class="arithmatex">\(f\)</span> is not onto.</p>
+<p>Let <span class="arithmatex">\(\boxed{B=\{x \in A|x \notin f(x)\}}\)</span>. It is obvious that<span class="arithmatex">\(B \subseteq S,B \in \mathcal{P}(S)\)</span>. </p>
+<p>For every <span class="arithmatex">\(s\in A\)</span>. </p>
+<ul>
+<li>If <span class="arithmatex">\(s\in B\)</span>, then by definition of <span class="arithmatex">\(B\)</span>, <span class="arithmatex">\(s\notin f(s)\)</span>. so <span class="arithmatex">\(B \neq f(s)\)</span>.   (Noted that this construction  is similar to  <span class="arithmatex">\(x_i=3(d_{ii}\neq 3),x_i=2(d_{ii}=3)\)</span> in <strong>Cantor Diagonalization Argument</strong>)</li>
+<li>If <span class="arithmatex">\(s \notin B\)</span>, then <span class="arithmatex">\(s \in f(s)\)</span>. so <span class="arithmatex">\(B\neq f(s)\)</span></li>
+</ul>
+<p>Because we can't find <span class="arithmatex">\(s\)</span> that <span class="arithmatex">\(f(s)=B\)</span>. so <span class="arithmatex">\(f\)</span> is not onto. Q.E.D.</p>
+<h3 id="the-continuum-hypothesis">The Continuum Hypothesis(连续统假设)</h3>
+<p>from Example 4:<span class="arithmatex">\(|\mathcal{P}(\mathbb{Z}^+)|=|\mathbb{R}|\)</span>.  记<span class="arithmatex">\(|\mathbb{R}|=c\)</span>,则<span class="arithmatex">\(2^{\aleph_0}=c\)</span>. 而连续统假设认为<span class="arithmatex">\(\aleph_0\)</span>和<span class="arithmatex">\(c\)</span>之间没有其他的基数, 即<span class="arithmatex">\(\aleph_1=c\)</span>,或<span class="arithmatex">\(2^{\aleph_0}=\aleph\)</span></p>
+<h3 id="applications">Applications</h3>
+<blockquote>
+<p>Show that the set of functions from <span class="arithmatex">\(\mathbb{Z}^+\)</span> to <span class="arithmatex">\(\{1,2,3,4,5,6,7,8,9\}\)</span> is uncountable</p>
+</blockquote>
+<p>Hint: prove <span class="arithmatex">\(|S|=|(0,1)|\)</span></p>
+<p><span class="arithmatex">\(x=0. d_1 d_2\dots d_n\)</span>. we associate a function <span class="arithmatex">\(f\)</span> to <span class="arithmatex">\(x\)</span> such that <span class="arithmatex">\(f(n)=d_n(n=1,2,3\dots)\)</span>. (小数的每一位确定<span class="arithmatex">\(f\)</span>的一个取值，不同的实数对应的函数不同). (A few functions are left out, because of forbidding representations such as 0.239999 . . ..). </p>
+<p>This is a bijection from <span class="arithmatex">\((0,1)\)</span> to a subset of <span class="arithmatex">\(S\)</span>. so <span class="arithmatex">\(|S| \geq |(0,1)|\)</span>, uncountable. </p>
+<blockquote>
+<p>Show that the set of finite strings S over a finite alphabet A is countably infinite</p>
+</blockquote>
+<p>Assume an alphabetical ordering of symbols in A. Show that the strings can be listed in a sequence. First list</p>
+<ol>
+<li>All the strings of length 0 in alphabetical order.</li>
+<li>Then all the strings of length 1 in <strong>lexicographic</strong> (as in a dictionary) order.</li>
+<li>Then all the strings of length 2 in lexicographic order.</li>
+<li>And so on.</li>
+</ol>
+<p>As the set of functions is uncountable while the set of finite strings(computer programs) is countable. So <strong>not all functions are computable.</strong>  这是计算理论的一个结论</p>
+<p>References: </p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument#General_sets">wiki</a></li>
+<li><a href="https://iamncj.github.io/Discrete_Mathematics_Explained_in_Detail/CH02_Basic_Structures/CH02_03_Cardinality_of_Sets.html">DM explained in detail</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
