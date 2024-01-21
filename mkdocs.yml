@@ -1,0 +1,25 @@
+site_name: Shigure的笔记本
+theme:
+  name: material
+  features:
+    - content.code.copy #代码块支持复制
+    - navigation.indexes #
+plugins: 
+  - search #搜索
+
+
+markdown_extensions:
+  - pymdownx.arithmatex: #mathjax
+      generic: true
+  - pymdownx.highlight: #代码块代码高亮
+      anchor_linenums: true #对代码块显示行号
+      line_spans: __span 
+      pygments_lang_class: true #显示代码所属语言
+  - pymdownx.inlinehilite #文内代码的高亮显示
+  - pymdownx.snippets # 应该是用不到 
+  - pymdownx.superfences # 应该是用不到，也没看懂用来干什么
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
