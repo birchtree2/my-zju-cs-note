@@ -783,7 +783,7 @@
 <h2 id="lc3tools">实验课相关 LC3TOOLS</h2>
 <p>注意调试时如果Randomize Machine,要Reload object files,否则内存中指令的位置会被覆盖</p>
 <h2 id="lc-3-isa">LC-3 ISA</h2>
-<p><img alt="205d092de10bd426cb94d229442b9cbe.png" src="..\..\..\_resources/205d092de10bd426cb94d229442b9cbe.png"/>
+<p><img alt="205d092de10bd426cb94d229442b9cbe.png" src="..\..\..\assets/images/205d092de10bd426cb94d229442b9cbe.png"/>
 附录A</p>
 <p>程序开头指定第一条指令在内存中存储的位置<code>x3</code></p>
 <p>PC寄存器:存储<strong>下一条</strong>指令在内存中存储的地址。每执行一步则+1</p>
@@ -809,7 +809,7 @@
 </li>
 </ul>
 <p>二进制:</p>
-<p><img alt="28dcf83181f45a3b893f613c5e0cfe69.png" src="..\..\..\_resources/28dcf83181f45a3b893f613c5e0cfe69.png" style="zoom:50%;"/></p>
+<p><img alt="28dcf83181f45a3b893f613c5e0cfe69.png" src="..\..\..\assets/images/28dcf83181f45a3b893f613c5e0cfe69.png" style="zoom:50%;"/></p>
 <p><code>DR</code>:目标寄存器(000-111), <code>PCoffset9</code>是<code>PC</code>中的地址到内存中想要的数据地址的偏移量</p>
 <p>意思是<code>DR=mem[PC+PCoffset9]</code> </p>
 <h3 id="lea">LEA</h3>
@@ -823,7 +823,7 @@
 </ul>
 <p>BR操作指定n,z,p, 表示需要判断哪些寄存器为1</p>
 <p>注意n,z,p是程序的指令,是不变的。N,Z,P是寄存器的值(condition code),在运行中会变,且每个时刻N,Z,P有且仅有一个是1</p>
-<p><img alt="236695a0b5b8caae20e30274e43426cd.png" src="..\..\..\_resources/236695a0b5b8caae20e30274e43426cd.png" style="zoom:50%;"/></p>
+<p><img alt="236695a0b5b8caae20e30274e43426cd.png" src="..\..\..\assets/images/236695a0b5b8caae20e30274e43426cd.png" style="zoom:50%;"/></p>
 <p>举例: 计算<span class="arithmatex">\(R3=R1\times R2\)</span>的机器码 (循环,每次R2-=1,R3+=R1)</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>0011 0000 0000 0000  ;.ORIG x3000
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>0101 011 011 1 00000 ;AND R3,R3,0   R3=0

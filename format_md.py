@@ -61,7 +61,8 @@ def modify_image_paths(html_dir):
                             num_levels = calculate_relative_path(file_path, html_dir)
                             cleaned_src = src.lstrip('../')  #去掉前面的../
                             modified_src = os.path.join(*([".."] * num_levels), cleaned_src) #加上正确的../个数
-                            # print(file_path,cleaned_src,html_dir,num_levels,modified_src)
+                            modified_src = modified_src.replace('_resources', 'assets/images')
+                            print(file_path,cleaned_src,html_dir,num_levels,modified_src)
                             img["src"] = modified_src
                 with open(file_path, "w", encoding='utf-8') as f:
                     f.write(str(soup))

@@ -882,7 +882,7 @@
 <h2 id="definition">Definition</h2>
 <p><span class="arithmatex">\(G=(V,E)\)</span></p>
 <p><span class="arithmatex">\(\color{red}{图的分类}\)</span></p>
-<p><img alt="b80cc0b44ed1d3bd40fa7baac06dad43.png" src="..\..\_resources/b80cc0b44ed1d3bd40fa7baac06dad43.png"/></p>
+<p><img alt="b80cc0b44ed1d3bd40fa7baac06dad43.png" src="..\..\assets/images/b80cc0b44ed1d3bd40fa7baac06dad43.png"/></p>
 <ul>
 <li>注意<span class="arithmatex">\(\color{red}有向图的重边必须方向相同\)</span>.如果有(a,b)(b,a)这种还是算simple directed graph</li>
 <li>directed multigraph可以有自环,但Multigraph没有自环</li>
@@ -904,17 +904,17 @@
 <p><strong>complete graph</strong>: <span class="arithmatex">\(K_n\)</span> (完全图) <span class="arithmatex">\(\color{red}{注意和C_n}区分开来\)</span></p>
 <p><strong>cycle</strong>: <span class="arithmatex">\(C_n\)</span></p>
 <p>wheel: <span class="arithmatex">\(W_n\)</span> 有n+1个点!</p>
-<p><img alt="38324313944ab20e62cd4740a3d8b945.png" src="..\..\_resources/38324313944ab20e62cd4740a3d8b945.png"/></p>
+<p><img alt="38324313944ab20e62cd4740a3d8b945.png" src="..\..\assets/images/38324313944ab20e62cd4740a3d8b945.png"/></p>
 <p><strong>n-cubes</strong>: <span class="arithmatex">\(Q_n\)</span> Two vertices are adjacent if and only if the bit strings that they represent differ in exactly one bit position</p>
 <p><span class="arithmatex">\(\deg (v)=2^{n-1}-1\)</span></p>
-<p><img alt="e5f2b99037a9447f7ab5b008604b5197.png" src="..\..\_resources/e5f2b99037a9447f7ab5b008604b5197.png"/></p>
+<p><img alt="e5f2b99037a9447f7ab5b008604b5197.png" src="..\..\assets/images/e5f2b99037a9447f7ab5b008604b5197.png"/></p>
 <h4 id="bipartite-graph">bipartite graph(二分图)</h4>
 <p>complete bipartite graph <span class="arithmatex">\(K_{m,n}\)</span>. 两边各m,n个,两两相连</p>
 <p>二分图的判定:染色法</p>
 <blockquote>
 <p>A simple graph is bipartite if and only if it is possible to assign one of two different colors to each vertex of the graph so that no two adjacent vertices are assigned the same color.</p>
 </blockquote>
-<p><img alt="7e5c0dc7b47edb62c9e7ee0d1c417916.png" src="..\..\_resources/7e5c0dc7b47edb62c9e7ee0d1c417916.png" style="zoom:50%;"/></p>
+<p><img alt="7e5c0dc7b47edb62c9e7ee0d1c417916.png" src="..\..\assets/images/7e5c0dc7b47edb62c9e7ee0d1c417916.png" style="zoom:50%;"/></p>
 <h3 id="subgraphs">Subgraphs</h3>
 <p><span class="arithmatex">\(G=(V,E),H=(W,F)\)</span></p>
 <ul>
@@ -940,7 +940,7 @@
 <p>adjacent matrix(重边对应重数)</p>
 <p>adjacent list</p>
 <p>incidence matrix <span class="arithmatex">\(M_{n \times m},m_{ij}=(e_j \text{ is incident with }v_i )\)</span></p>
-<p><img alt="74d722072448220eb8c5f0a9415db220.png" src="..\..\_resources/74d722072448220eb8c5f0a9415db220.png"/></p>
+<p><img alt="74d722072448220eb8c5f0a9415db220.png" src="..\..\assets/images/74d722072448220eb8c5f0a9415db220.png"/></p>
 <h3 id="isomorphic">Isomorphic (同构)</h3>
 <p>It is difficult to determine two graphs are isomorphic.(NP problem,but not NP-complete). 但是可以找一些不变的特征(invariants)判断两个图不同构</p>
 <ul>
@@ -987,9 +987,9 @@
 <h3 id="euler-graph">Euler Graph</h3>
 <h3 id="hamilton-graph">Hamilton Graph</h3>
 <h4 id="sufficient-conditionores-theorem">sufficient condition:Ore's Theorem</h4>
-<p><img alt="088f0151e148c972f2bc3ec0799b5ad4.png" src="..\..\_resources/088f0151e148c972f2bc3ec0799b5ad4.png"/></p>
+<p><img alt="088f0151e148c972f2bc3ec0799b5ad4.png" src="..\..\assets/images/088f0151e148c972f2bc3ec0799b5ad4.png"/></p>
 <blockquote>
-<p><img alt="62ae14c50b05dbdf84b6fa3ab14c892b.png" src="..\..\_resources/62ae14c50b05dbdf84b6fa3ab14c892b.png"/></p>
+<p><img alt="62ae14c50b05dbdf84b6fa3ab14c892b.png" src="..\..\assets/images/62ae14c50b05dbdf84b6fa3ab14c892b.png"/></p>
 </blockquote>
 <p>V:seven examinations  E:(u,v) u,v are examinations are not in charged by the same teacher. If there is a H path,than it is possible</p>
 <p>because the teacher at most 4 exminations <span class="arithmatex">\(\deg (v)\geq 3\)</span>. the sum of the degrees of a pair vertices is at least 6</p>
@@ -1005,16 +1005,16 @@
 <p><span class="arithmatex">\(\color{red}\text{重要!!!如果要找反例，尽量找“割点”去掉,构造尽量多的连通分量}\)</span></p>
 </blockquote>
 <p>因为有哈密顿环路,我们从环路上去掉S中的结点，就把环分成了若干段，每段都是连通的。如去掉1个节点，剩下n-1个构成1个连通分量。去掉2个节点，环至多分成2段(这两段可能有其他边连通...
-<img alt="8eee5daebea3a32cf226677c8edc38e7.png" src="..\..\_resources/8eee5daebea3a32cf226677c8edc38e7.png" style="zoom:50%;"/></p>
+<img alt="8eee5daebea3a32cf226677c8edc38e7.png" src="..\..\assets/images/8eee5daebea3a32cf226677c8edc38e7.png" style="zoom:50%;"/></p>
 <p>去掉1个出现2个      去掉5个出现6个连通块,所以这两个都没有哈密顿回路</p>
 <h2 id="shortest-path">Shortest Path</h2>
 <h2 id="planar-graph">Planar Graph</h2>
 <p>drawn in the plane without any edges crossing</p>
 <p><span class="arithmatex">\(K_4\)</span> is planar  (画成三角形，有一个点在中间)</p>
 <p><span class="arithmatex">\(K_{3,3}\)</span> is not planar  Proof:</p>
-<p><img alt="df8e51dfe585694fa445cba4a445206d.png" src="..\..\_resources/df8e51dfe585694fa445cba4a445206d.png"/></p>
+<p><img alt="df8e51dfe585694fa445cba4a445206d.png" src="..\..\assets/images/df8e51dfe585694fa445cba4a445206d.png"/></p>
 <p>平面图的判定一般只能瞪眼，如果看不出来一般考虑跟<span class="arithmatex">\(K_{3,3}\)</span>，用定理证明不是平面图</p>
-<p><img alt="fb31cb99e2cc40de23099a1ac2906e8c.png" src="..\..\_resources/fb31cb99e2cc40de23099a1ac2906e8c.png"/>=<img alt="53f08120f386b12ec6878bf7c704baef.png" src="..\..\_resources/53f08120f386b12ec6878bf7c704baef.png"/></p>
+<p><img alt="fb31cb99e2cc40de23099a1ac2906e8c.png" src="..\..\assets/images/fb31cb99e2cc40de23099a1ac2906e8c.png"/>=<img alt="53f08120f386b12ec6878bf7c704baef.png" src="..\..\assets/images/53f08120f386b12ec6878bf7c704baef.png"/></p>
 <h3 id="eulers-theorem">Euler's Theorem</h3>
 <blockquote>
 <p><span class="arithmatex">\(G\)</span>: <span class="arithmatex">\(\color{red}\text{connected}\)</span> planar simple graph. <span class="arithmatex">\(r\)</span>
@@ -1072,11 +1072,11 @@
 </blockquote>
 <p>难点是：如何删除节点和边，看出<span class="arithmatex">\(K_{3,3}\)</span>or <span class="arithmatex">\(K_5\)</span></p>
 <blockquote>
-<p>例1 <img alt="cf4a200b299c20fe932f40898ac461f7.png" src="..\..\_resources/cf4a200b299c20fe932f40898ac461f7.png"/></p>
+<p>例1 <img alt="cf4a200b299c20fe932f40898ac461f7.png" src="..\..\assets/images/cf4a200b299c20fe932f40898ac461f7.png"/></p>
 </blockquote>
 <p>a,d,f和b,c,e构成<span class="arithmatex">\(K_{3,3}\)</span>,所以不是平面图</p>
 <blockquote>
-<p>例<img alt="01923317a9cf7f030fee353dece87282.png" src="..\..\_resources/01923317a9cf7f030fee353dece87282.png"/></p>
+<p>例<img alt="01923317a9cf7f030fee353dece87282.png" src="..\..\assets/images/01923317a9cf7f030fee353dece87282.png"/></p>
 </blockquote>
 <p>外圈的六边形也是<span class="arithmatex">\(K_{3,3}\)</span></p>
 <h2 id="graph-coloring">Graph Coloring</h2>
