@@ -121,12 +121,16 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     离散数学及其应用
   </span>
+</a>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="true" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_1">
 <span class="md-nav__icon md-icon"></span>
@@ -350,13 +354,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%5B%E7%BD%AE%E9%A1%B6%5D%E8%AF%BE%E7%A8%8B%E8%A6%81%E6%B1%82%E5%92%8C%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/">
-<span class="md-ellipsis">
-    [置顶]课程要求和参考资料
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E4%B8%8E%E5%8E%86%E5%B9%B4%E5%8D%B7%E9%A2%98%E7%9B%AE/">
 <span class="md-ellipsis">
     离散数学期末复习与历年卷题目
@@ -368,25 +365,22 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/">
 <span class="md-ellipsis">
     计算机系统概论
   </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_2">
 <span class="md-nav__icon md-icon"></span>
             计算机系统概论
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/%5B%E7%BD%AE%E9%A1%B6%5D%E8%AF%BE%E7%A8%8B%E8%A6%81%E6%B1%82%E5%92%8C%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/">
-<span class="md-ellipsis">
-    [置顶]课程要求和参考资料
-  </span>
-</a>
-</li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_2_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
@@ -857,7 +851,7 @@ M_{S\circ R}=M_R \times M_S
 </ul>
 <p>reflexive closure: <span class="arithmatex">\(R\cup I_a\)</span></p>
 <p>symmetric closure:<span class="arithmatex">\(R \cup R^{-1}\)</span></p>
-<p>transitive closure:  <span class="arithmatex">\(\cup_{i=1}^{\infin} R^i\)</span></p>
+<p>transitive closure:  <span class="arithmatex">\(\cup_{i=1}^{\infty} R^i\)</span></p>
 <p>Warshall's Algorithm</p>
 <p>手算，每次取第k行和第k列. 用第k列(<code>a[i][k]</code>)和第k行<code>a[k][j]</code>两两匹配,如果有2个都是1的,就把<code>a[i][j]</code>设为</p>
 <h3 id="equivalence-relations">Equivalence Relations</h3>

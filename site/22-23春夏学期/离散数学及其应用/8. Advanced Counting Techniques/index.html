@@ -121,12 +121,16 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     离散数学及其应用
   </span>
+</a>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="true" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_1">
 <span class="md-nav__icon md-icon"></span>
@@ -340,13 +344,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%5B%E7%BD%AE%E9%A1%B6%5D%E8%AF%BE%E7%A8%8B%E8%A6%81%E6%B1%82%E5%92%8C%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/">
-<span class="md-ellipsis">
-    [置顶]课程要求和参考资料
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E4%B8%8E%E5%8E%86%E5%B9%B4%E5%8D%B7%E9%A2%98%E7%9B%AE/">
 <span class="md-ellipsis">
     离散数学期末复习与历年卷题目
@@ -358,25 +355,22 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/">
 <span class="md-ellipsis">
     计算机系统概论
   </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_2">
 <span class="md-nav__icon md-icon"></span>
             计算机系统概论
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/%5B%E7%BD%AE%E9%A1%B6%5D%E8%AF%BE%E7%A8%8B%E8%A6%81%E6%B1%82%E5%92%8C%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/">
-<span class="md-ellipsis">
-    [置顶]课程要求和参考资料
-  </span>
-</a>
-</li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_2_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
@@ -830,7 +824,7 @@ a_n=c_1a_{n-1}+\dots c_ka_{n-k}
 <h2 id="generating-functions">Generating Functions</h2>
 <h3 id="definition-and-operation">Definition and operation</h3>
 <p>Sequences-&gt;Functions(of power series)</p>
-<p>Ordinary generating function of <span class="arithmatex">\(\{a_n\}\)</span>: <span class="arithmatex">\(G(x)=\sum_{k=0}^{\infin}a_kx^k\)</span> (<strong>0-index</strong>)</p>
+<p>Ordinary generating function of <span class="arithmatex">\(\{a_n\}\)</span>: <span class="arithmatex">\(G(x)=\sum_{k=0}^{\infty}a_kx^k\)</span> (<strong>0-index</strong>)</p>
 <p>(根据数列求生成函数，就是对幂级数求和函数，微积分里已经讲的很清楚)</p>
 <p><span class="arithmatex">\(a_n=1\)</span>, <span class="arithmatex">\(G(x)=\sum_{k \geq 0}x^k=\frac{1}{1-x}\)</span></p>
 <p><span class="arithmatex">\(a_n=n\)</span>, <span class="arithmatex">\(\boxed{G(x)=\sum_{k \geq 0}kx^k=x\sum_{k \geq 0}kx^{k-1}=x(\frac{1}{1-x})'=\frac{x}{(1-x)^2}}\)</span></p>
@@ -847,7 +841,7 @@ a_n=c_1a_{n-1}+\dots c_ka_{n-k}
 </blockquote>
 <div class="arithmatex">\[\sum_{k=0}^{m-1}x^k=\frac{1-x^m}{1-x}\]</div>
 <blockquote>
-<p>Eg. <span class="arithmatex">\(a_n=C(10,n+1)\)</span>. <span class="arithmatex">\(\sum_{n=0}^\infin C(10,n+1)x^n=\frac{1}{x}\sum_{n=1}^\infin C(10,n)x^n=\frac{(1+x)^{10}-1}{x}\)</span></p>
+<p>Eg. <span class="arithmatex">\(a_n=C(10,n+1)\)</span>. <span class="arithmatex">\(\sum_{n=0}^\infty C(10,n+1)x^n=\frac{1}{x}\sum_{n=1}^\infty C(10,n)x^n=\frac{(1+x)^{10}-1}{x}\)</span></p>
 </blockquote>
 <p>根据数列求生成函数</p>
 <ul>
@@ -869,7 +863,7 @@ a_n=c_1a_{n-1}+\dots c_ka_{n-k}
 <div class="arithmatex">\[\boxed{a_n=C(m+n-1,m-1),f(x)=\frac{1}{(1-x)^m}}\]</div>
 <p>Extended binomial Theorem（本质是<span class="arithmatex">\((1+x)^a\)</span>的泰勒级数) 根据</p>
 <div class="arithmatex">\[
-(1+x)^a=\sum_{k=0}^{\infin} \frac{a(a-1)\dots (a-k+1)}{k!}x^k=\sum_{k=0}^{\infin}\binom{a}{k}x^k(a \in \mathbb{R})
+(1+x)^a=\sum_{k=0}^{\infty} \frac{a(a-1)\dots (a-k+1)}{k!}x^k=\sum_{k=0}^{\infty}\binom{a}{k}x^k(a \in \mathbb{R})
 \]</div>
 <p>展开<span class="arithmatex">\((1+x)^{-n}\)</span>即可</p>
 <blockquote>
@@ -908,7 +902,7 @@ a_n=c_1a_{n-1}+\dots c_ka_{n-k}
 <p><code>$1,$2,$5</code> to pay <code>$r</code> 
 the order matters</p>
 </blockquote>
-<p>(etc. 3=1+2=2+1)  <span class="arithmatex">\(\sum_{k=0}^{\infin}(x+x^2+x^5)=\frac{1}{1-x-x^2-x^5}\)</span></p>
+<p>(etc. 3=1+2=2+1)  <span class="arithmatex">\(\sum_{k=0}^{\infty}(x+x^2+x^5)=\frac{1}{1-x-x^2-x^5}\)</span></p>
 <h3 id="solve-recurrence-relations">Solve recurrence relations</h3>
 <p>好处: 不用区分齐次/非齐次</p>
 <ol>
@@ -949,7 +943,7 @@ D_n=n!\sum_{k=0}^n{\frac{(-1)^k}{k!}}
 \]</div>
 <p>枚举固定的k个元素,其他元素的排法就是<span class="arithmatex">\(C(n,k)(n-k)!=\frac{n!}{k!}\)</span></p>
 <p>性质：</p>
-<p><span class="arithmatex">\(\lim_{n \to \infin}\frac{D_n}{n!}=\frac{1}{e}\)</span></p>
+<p><span class="arithmatex">\(\lim_{n \to \infty}\frac{D_n}{n!}=\frac{1}{e}\)</span></p>
 <div class="arithmatex">\[
 D_n=(n-1)(D_{n-1}+D_{n-2})
 \]</div>

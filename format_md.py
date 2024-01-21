@@ -72,7 +72,7 @@ def modify_image_paths(html_dir):
 
 if __name__ == "__main__":
     #处理markdown文件
-    upd_md(md_dir, replace_dict)
+    # upd_md(md_dir, replace_dict)
     #调用mkdocs
     subprocess.run(["mkdocs", "build"])
     # 处理 HTML 文件
