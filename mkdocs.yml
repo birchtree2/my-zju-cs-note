@@ -6,7 +6,7 @@ theme:
     - navigation.indexes #index.md 设置每个栏目的介绍
 plugins: 
   - search #搜索
-
+use_directory_urls: false
 
 markdown_extensions:
   - pymdownx.arithmatex: #mathjax

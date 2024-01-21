@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../../index.html" rel="prev"/>
-<link href="1.Propositional%20Logic.html" rel="next"/>
+<link href="8.%20Advanced%20Counting%20Techniques.html" rel="prev"/>
+<link href="ZJU%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%202023%E6%98%A5%E5%A4%8F%E5%9B%9E%E5%BF%86%E9%A2%98.html" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.4" name="generator"/>
-<title>Index - Shigure的笔记本</title>
+<title>9.Relation - Shigure的笔记本</title>
 <link href="../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -21,6 +21,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#definition">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -42,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Index
+              9.Relation 
             
           </span>
 </div>
@@ -119,12 +122,12 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link md-nav__link--active" href="index.html">
+<a class="md-nav__link" href="index.html">
 <span class="md-ellipsis">
     离散数学及其应用
   </span>
 </a>
-<label class="md-nav__link md-nav__link--active" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
@@ -197,12 +200,151 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="9.Relation_.html">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    9.Relation 
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="9.Relation_.html">
 <span class="md-ellipsis">
     9.Relation 
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definition">
+<span class="md-ellipsis">
+      Definition
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#properties">
+<span class="md-ellipsis">
+      Properties
+    </span>
+</a>
+<nav aria-label="Properties" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#counting-relations-on-set">
+<span class="md-ellipsis">
+      Counting relations on set
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operations">
+<span class="md-ellipsis">
+      Operations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#closures">
+<span class="md-ellipsis">
+      Closures
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equivalence-relations">
+<span class="md-ellipsis">
+      Equivalence Relations
+    </span>
+</a>
+<nav aria-label="Equivalence Relations" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equivalence-class">
+<span class="md-ellipsis">
+      Equivalence class
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#partitions-of-a-set-and-relations">
+<span class="md-ellipsis">
+      Partitions of a set and Relations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operation-of-equivalence-relations">
+<span class="md-ellipsis">
+      Operation of equivalence relations
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#partial-orderings">
+<span class="md-ellipsis">
+      Partial Orderings
+    </span>
+</a>
+<nav aria-label="Partial Orderings" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hasse-diagrams">
+<span class="md-ellipsis">
+      Hasse Diagrams
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#chain-and-antichain">
+<span class="md-ellipsis">
+      Chain and antichain
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#special-elements">
+<span class="md-ellipsis">
+      Special Elements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lattice">
+<span class="md-ellipsis">
+      Lattice
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#well-ordered-set">
+<span class="md-ellipsis">
+      Well-ordered set
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#topological-sorting">
+<span class="md-ellipsis">
+      Topological Sorting
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="ZJU%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%202023%E6%98%A5%E5%A4%8F%E5%9B%9E%E5%BF%86%E9%A2%98.html">
@@ -446,18 +588,356 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definition">
+<span class="md-ellipsis">
+      Definition
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#properties">
+<span class="md-ellipsis">
+      Properties
+    </span>
+</a>
+<nav aria-label="Properties" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#counting-relations-on-set">
+<span class="md-ellipsis">
+      Counting relations on set
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operations">
+<span class="md-ellipsis">
+      Operations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#closures">
+<span class="md-ellipsis">
+      Closures
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equivalence-relations">
+<span class="md-ellipsis">
+      Equivalence Relations
+    </span>
+</a>
+<nav aria-label="Equivalence Relations" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equivalence-class">
+<span class="md-ellipsis">
+      Equivalence class
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#partitions-of-a-set-and-relations">
+<span class="md-ellipsis">
+      Partitions of a set and Relations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operation-of-equivalence-relations">
+<span class="md-ellipsis">
+      Operation of equivalence relations
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#partial-orderings">
+<span class="md-ellipsis">
+      Partial Orderings
+    </span>
+</a>
+<nav aria-label="Partial Orderings" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hasse-diagrams">
+<span class="md-ellipsis">
+      Hasse Diagrams
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#chain-and-antichain">
+<span class="md-ellipsis">
+      Chain and antichain
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#special-elements">
+<span class="md-ellipsis">
+      Special Elements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lattice">
+<span class="md-ellipsis">
+      Lattice
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#well-ordered-set">
+<span class="md-ellipsis">
+      Well-ordered set
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#topological-sorting">
+<span class="md-ellipsis">
+      Topological Sorting
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>Index</h1>
-<p>概念多，过课件、作业</p>
-<p>建议先看后面的6,7,8,9,10，再回到第一章</p>
-<p>1 Counting
-1 Relation
-2 Tree、Graph</p>
+<h1>9.Relation </h1>
+<p>注意看关系的定义，计数不同性质关系(reflexive,symmetric,antisymmetric)的, 偏序关系</p>
+<h3 id="definition">Definition</h3>
+<blockquote>
+<p>A binary relation from <span class="arithmatex">\(A\)</span> to <span class="arithmatex">\(B\)</span> is a subset of <span class="arithmatex">\(A\times B\)</span></p>
+</blockquote>
+<p>The graph of function <span class="arithmatex">\(f:A \to B\)</span>is a relation. 但反之不成立</p>
+<blockquote>
+<p>A relation on a set A is a relation from A to A</p>
+</blockquote>
+<p>A relation can be expressed as</p>
+<ul>
+<li>Connection matrix <span class="arithmatex">\(m_{ij}=[(a_i,b_j)\in R]\)</span> 可以理解成图的邻接矩阵,只有0和1</li>
+<li>Directed graphs</li>
+</ul>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>Definition</th>
+<th>Connection Matrix</th>
+<th>Digraph</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reflexive</td>
+<td><span class="arithmatex">\(\forall x\in A,(x,x)\in R\)</span></td>
+<td>对角线全为1</td>
+<td>每个结点都有自环</td>
+</tr>
+<tr>
+<td>irreflexive</td>
+<td><span class="arithmatex">\(\forall x\in A,(x,x)\notin R\)</span></td>
+<td>对角线全为0</td>
+<td>每个结点都没有自环</td>
+</tr>
+<tr>
+<td>symmetric</td>
+<td><span class="arithmatex">\(\forall x,y\in A,(x,y)\in R \to (y,x) \in R\)</span></td>
+<td><span class="arithmatex">\(M=M^T\)</span></td>
+<td>每一条边都有反向边</td>
+</tr>
+<tr>
+<td>antisymmetric</td>
+<td><span class="arithmatex">\(\forall x,y\in A,((x,y)\in R\wedge(y,x)\in R)\\ \to x=y\)</span></td>
+<td>对角线可以为0/1, 非对角线上的对称位置不能同时为1</td>
+<td>每一条边都没有反向边，<strong>可以有自环</strong></td>
+</tr>
+<tr>
+<td>asymmetric</td>
+<td><span class="arithmatex">\(\forall x \in A,(x,y)\in R\to(y,x) \notin R\)</span></td>
+<td>对角线全为0,非对角线上的对称位置不能同时为1</td>
+<td>每一条边都没有反向边,<strong>不能有自环</strong></td>
+</tr>
+<tr>
+<td>transitive</td>
+<td><span class="arithmatex">\(\forall x,y,z\in A ((x,y)\in R\wedge (y,z)\in R)\\ \to(y,z)\in R)\)</span></td>
+<td><span class="arithmatex">\(M^2 \vee M=M\)</span></td>
+<td>对于每一条从<span class="arithmatex">\(u\)</span>到<span class="arithmatex">\(v\)</span>长度为2的路径，有一条边<span class="arithmatex">\((u,v)\)</span>. (即<span class="arithmatex">\(R^2\subseteq R\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>也就是说如果<span class="arithmatex">\((x,y) \in R且x\neq y\)</span>则<span class="arithmatex">\((y,x)\notin R\)</span> . 如果R是antisymmetric的，那么可以包括(a,a).</li>
+</ul>
+<p>A relation can be both symmetric and antisymmetric: <span class="arithmatex">\(M=\begin{pmatrix}&amp;1 \ &amp;0\\&amp;0 \ &amp;1 \end{pmatrix}\)</span></p>
+<blockquote>
+<p>symmectric+transitive=reflexive?</p>
+</blockquote>
+<p>No, for example <span class="arithmatex">\(M=0\)</span></p>
+<p>错在symmetric不代表对于任意的<span class="arithmatex">\(a\)</span>都存在<span class="arithmatex">\(b\)</span>使得<span class="arithmatex">\((a,b)\in R\)</span></p>
+<h4 id="counting-relations-on-set">Counting relations on set</h4>
+<blockquote>
+<p>|A|=n, how many relation on set A is</p>
+<ul>
+<li>reflexive: <span class="arithmatex">\(2^{n^2-n}\)</span></li>
+<li>symmetric: <span class="arithmatex">\(\color{red}2^{(n^2-n)/2}\times 2^n=2^{(n(n+1)/2)}\)</span> 注意对角线上可以是0或1</li>
+<li><strong>antisymmetric</strong>: <span class="arithmatex">\(\color{red}3^{n(n-1)/2}\times 2^n\)</span> 对于矩阵非对角线上的一对对称的元素, 只能是(0,0),(0,1),(1,0). 对角线上可以是0或1</li>
+<li>asymmetric <span class="arithmatex">\(3^{n(n-1)/2}\)</span>，对角线上全为0</li>
+</ul>
+</blockquote>
+<h3 id="operations">Operations</h3>
+<blockquote>
+<p><span class="arithmatex">\(R^{-1}=\{(b,a)|(a,b)\in R \}\)</span></p>
+</blockquote>
+<p><span class="arithmatex">\(M_{R^{-1}} =M_R^T\)</span></p>
+<blockquote>
+<p><span class="arithmatex">\(S\circ R=\{(a,c)|(a,b)\in R \wedge \color{red}(b,c)\in S\}\)</span></p>
+</blockquote>
+<p><strong>注意顺序，S在后面！！！！</strong></p>
+<p>对应邻接矩阵的乘法(用与运算代替乘法，或运算代替加法) </p>
+<div class="arithmatex">\[
+M_{S\circ R}=M_R \times M_S
+\]</div>
+<p><span class="arithmatex">\(R^n=R\circ R \circ \dots R\)</span></p>
+<p>或者对应有向图中长度小于等于n的路径(Floyd传递闭包（确信))</p>
+<blockquote>
+<p>The relation R on a set A is transitive if and only if <span class="arithmatex">\(R^n \subseteq R\)</span> for n = 1, 2, 3,...</p>
+</blockquote>
+<h3 id="closures">Closures</h3>
+<blockquote>
+<p>If there is a relation S with property P containing R, such that S is a subset of every relation with property P containing R, then S is called the closure of R with respect to P</p>
+</blockquote>
+<p>证明分3步</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(R \subseteq S\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(S\)</span> 满足性质<span class="arithmatex">\(P\)</span></p>
+</li>
+<li>
+<p>证明S是最小的，可以反证，或者证明任意一个满足P的关系都包含S</p>
+<p><img alt="image-20230530095535513" src="C:\Users\19808\AppData\Roaming\Typora\typora-user-images\image-20230530095535513.png"/></p>
+</li>
+</ul>
+<p>reflexive closure: <span class="arithmatex">\(R\cup I_a\)</span></p>
+<p>symmetric closure:<span class="arithmatex">\(R \cup R^{-1}\)</span></p>
+<p>transitive closure:  <span class="arithmatex">\(\cup_{i=1}^{\infty} R^i\)</span></p>
+<p>Warshall's Algorithm</p>
+<p>手算，每次取第k行和第k列. 用第k列(<code>a[i][k]</code>)和第k行<code>a[k][j]</code>两两匹配,如果有2个都是1的,就把<code>a[i][j]</code>设为</p>
+<h3 id="equivalence-relations">Equivalence Relations</h3>
+<p><strong>reflexive,symmetric and transitive</strong>-&gt; equvalence relation</p>
+<h4 id="equivalence-class">Equivalence class</h4>
+<p>Equivalence class of <span class="arithmatex">\(x\)</span>: <span class="arithmatex">\([x]_R\)</span> or <span class="arithmatex">\([x]\)</span>  The set of all elements that are related to an element <span class="arithmatex">\(x\)</span></p>
+<blockquote>
+<p>Eg. <span class="arithmatex">\(R=\{(a,b)|a \equiv b\pmod 3\}\)</span></p>
+</blockquote>
+<p><span class="arithmatex">\([0]=\{3k|k \in Z\},[1]=\{3k+1|k \in Z\},[2]=\{3k+2|k \in Z\}\)</span></p>
+<h4 id="partitions-of-a-set-and-relations">Partitions of a set and Relations</h4>
+<blockquote>
+<p>Theorem<img alt="a71d20e55427d08766a69c287943dd0f.png" src="..\..\_resources/a71d20e55427d08766a69c287943dd0f.png"/>
+左推右很好证。考虑右推左</p>
+</blockquote>
+<p><span class="arithmatex">\(R=\{(a,b)|a,b \in A_i\}\)</span> <span class="arithmatex">\(pr(A)=A_1,A_2\dots A_n\)</span></p>
+<ul>
+<li>reflexive: <span class="arithmatex">\(\forall a \in A,\exist A_i, a \in A_i\)</span></li>
+<li>symmetric</li>
+<li>transitive: <span class="arithmatex">\(aRb,bRc\)</span>, <span class="arithmatex">\(a,b\in A_i\ \ b,c \in A_j\)</span>. because <span class="arithmatex">\(A_i \cap A_j=\emptyset(i \neq j)\)</span>, so <span class="arithmatex">\(i=j\)</span></li>
+</ul>
+<p><a href="../../_resources/4a48fe0446513dfdb3c3cc67cb93c5e7.png">4a48fe0446513dfdb3c3cc67cb93c5e7.png</a></p>
+<blockquote>
+<p><span class="arithmatex">\(|A|=n\)</span>, how many different equivalence relations on the set <span class="arithmatex">\(A\)</span> are there</p>
+</blockquote>
+<p>Consider the partition of A. <span class="arithmatex">\(\sum_{k=0}^n S(n,k)\)</span></p>
+<h4 id="operation-of-equivalence-relations">Operation of equivalence relations</h4>
+<p><span class="arithmatex">\(R_1,R_2\)</span> is equivalence relation, <span class="arithmatex">\(R_1 \cup R_2\)</span> is not </p>
+<p><img alt="ee1f7479a56640ef06df0847fd708fda.png" src="..\..\_resources/ee1f7479a56640ef06df0847fd708fda.png"/></p>
+<p>因为不满足Transitive, 对<span class="arithmatex">\(R_1 \cup R_2\)</span> 再跑传递闭包就可以</p>
+<h3 id="partial-orderings">Partial Orderings</h3>
+<p>a <strong>reflexive,antisymmetric and transitive </strong>relation is a partial order.</p>
+<ul>
+<li>验证是partial order,前两项容易，注意transitive relation要枚举3个点</li>
+</ul>
+<p>S is a set, R is a partial order on S, <span class="arithmatex">\((S,R)\)</span> is called a <strong>poset</strong></p>
+<p>The elements a and b of a poset <span class="arithmatex">\((S, \leq)\)</span> are called <strong>comparable</strong> if either <span class="arithmatex">\(a \leq b\)</span> or <span class="arithmatex">\(b \leq a\)</span>. (这里的≤代表抽象的大小关系，不是实数的比大小)</p>
+<p>If <span class="arithmatex">\((S, \leq )\)</span> is a poset and every two elements of S are comparable, S is called a totally ordered or linearly ordered set, or a chain.</p>
+<h4 id="hasse-diagrams">Hasse Diagrams</h4>
+<p>先把偏序关系表示成有向图，根据传递性去掉不需要的边。再分层画出节点，去掉箭头。</p>
+<p><img alt="5ceac7f835e6d568a49b66c276c061ae.png" src="..\..\_resources/5ceac7f835e6d568a49b66c276c061ae.png"/></p>
+<p><img alt="5d015e38a865247e1e8f11417b8973cb.png" src="..\..\_resources/5d015e38a865247e1e8f11417b8973cb.png"/></p>
+<p>画<span class="arithmatex">\((A,|)\)</span>的Hasse diagram，可以不必用通用的方法</p>
+<ol>
+<li>如果有1,则1在最底部</li>
+<li>接下来一层是质数</li>
+<li>依次放上质数的倍数</li>
+</ol>
+<h4 id="chain-and-antichain">Chain and antichain</h4>
+<p>A subset of a poset is called a chain if every two elements of this subset are comparable. </p>
+<p>A subset of a poset is called an <strong>antichain</strong> if <strong>every two elements</strong> of this subset are incomparable</p>
+<blockquote>
+<p>Dilworth's theorem:</p>
+<p>every finite poset can be partitioned into k chains, where k is the largest number of elements in an antichain in this poset</p>
+</blockquote>
+<h4 id="special-elements">Special Elements</h4>
+<ul>
+<li>
+<p>maximal element <span class="arithmatex">\(m\)</span>:  不存在<span class="arithmatex">\(a \in S,a \geq m\)</span> （可能有多个，也可能不存在) (top element of Hasse diagram)</p>
+</li>
+<li>
+<p>minimal element: (bottom element of Hasse diagram)</p>
+</li>
+<li>
+<p>greatest element: <span class="arithmatex">\(\forall a \in S,m \geq a\)</span> (唯一)</p>
+</li>
+<li>
+<p>least element: (唯一)</p>
+</li>
+<li>
+<p>upper bounds: for <span class="arithmatex">\(A \subseteq S\)</span>, <span class="arithmatex">\(\exist a, \forall b \in A, a \geq b\)</span>, then <span class="arithmatex">\(a\)</span> is upper bound of <span class="arithmatex">\(A\)</span></p>
+<ul>
+<li>least upper bound(lub)</li>
+</ul>
+</li>
+<li>
+<p>lower bounds</p>
+<ul>
+<li>greatest lower bound(glb).</li>
+</ul>
+</li>
+</ul>
+<p><img alt="165b7177d8e14eb3fc8d55cce93fc393.png" src="..\..\_resources/165b7177d8e14eb3fc8d55cce93fc393.png"/></p>
+<h4 id="lattice">Lattice</h4>
+<p>a poset is called a lattice if <strong>each pair</strong> of elements have a glb and lub.</p>
+<p>every totally ordered set is a lattice</p>
+<p><strong><span class="arithmatex">\((Z^+,|)\)</span> is a lattice. (glb=两个数的最大公因数，lub=最小公倍数) 
+<span class="arithmatex">\((P(S),\subseteq)\)</span> is a lattice (取并集、交集)</strong></p>
+<h4 id="well-ordered-set">Well-ordered set</h4>
+<p>a well-ordered set is a poset that every nonempty subset of A has a least element.
+a well-ordered set is a totally ordered set.(choose subset of size 2)</p>
+<p>mathmatical induction(见Section 5)</p>
+<h4 id="topological-sorting">Topological Sorting</h4>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
