@@ -1098,10 +1098,10 @@
 <h3 id="quantifiers">Quantifiers</h3>
 <blockquote>
 <p>Universal Quantifier: <span class="arithmatex">\(\forall x\ p(x)\)</span>
-Existential Quantifier: <span class="arithmatex">\(\existssss x\ p(x)\)</span></p>
+Existential Quantifier: <span class="arithmatex">\(\exists x\ p(x)\)</span></p>
 <p>Domain (domain of discourse / universe of discourse): range of the possible values of the variable x</p>
 </blockquote>
-<p>Precedence: <span class="arithmatex">\(\forall\)</span> and <span class="arithmatex">\(\existsssss\)</span> have <strong>higher precedence than all logical operators</strong></p>
+<p>Precedence: <span class="arithmatex">\(\forall\)</span> and <span class="arithmatex">\(\exists\)</span> have <strong>higher precedence than all logical operators</strong></p>
 <table>
 <thead>
 <tr>
@@ -1112,7 +1112,7 @@ Existential Quantifier: <span class="arithmatex">\(\existssss x\ p(x)\)</span></
 <tbody>
 <tr>
 <td>1</td>
-<td><span class="arithmatex">\(\forall,\existssss\)</span></td>
+<td><span class="arithmatex">\(\forall,\exists\)</span></td>
 </tr>
 <tr>
 <td>2</td>
@@ -1135,29 +1135,29 @@ Existential Quantifier: <span class="arithmatex">\(\existssss x\ p(x)\)</span></
 <h3 id="logical-equivalences-involving-quantifiers">Logical Equivalences Involving Quantifiers</h3>
 <p>Distribution:</p>
 <p><span class="arithmatex">\(\forall (p(x) \wedge q(x)) \equiv\forall x p(x) \wedge \forall x q(x)\)</span></p>
-<p><span class="arithmatex">\(\existssss (p(x) \vee q(x)) \equiv \existssss x p(x) \vee\existssss x q(x)\)</span></p>
+<p><span class="arithmatex">\(\exists (p(x) \vee q(x)) \equiv \exists x p(x) \vee\exists x q(x)\)</span></p>
 <p>note that **you cannot distribute  Universal Quantifier over OR ** </p>
 <p>De Morgan's Law:
- <span class="arithmatex">\(\neg (\forall x\ p(x)) \equiv \existssss x \ \neg p(x)\)</span>
-<span class="arithmatex">\(\neg (\existssss x\ p(x)) \equiv\forall x \ \neg p(x)\)</span>
+ <span class="arithmatex">\(\neg (\forall x\ p(x)) \equiv \exists x \ \neg p(x)\)</span>
+<span class="arithmatex">\(\neg (\exists x\ p(x)) \equiv\forall x \ \neg p(x)\)</span>
 注意右推左在证明里很常用
 (1) <span class="arithmatex">\(\quad \forall x P(x) \vee A \equiv\forall x(P(x) \vee A)\)</span>
 (2) <span class="arithmatex">\(\forall x P(x) \wedge A \equiv \forall x(P(x) \wedge A)\)</span>
-(3) <span class="arithmatex">\(\quad \existsssss x P(x) \vee A \equiv \existsssss x(P(x) \vee A)\)</span>
-(4) <span class="arithmatex">\(\existsssss x P(x) \wedge A \equiv \existsssss x(P(x) \wedge A)\)</span>
+(3) <span class="arithmatex">\(\quad \exists x P(x) \vee A \equiv \exists x(P(x) \vee A)\)</span>
+(4) <span class="arithmatex">\(\exists x P(x) \wedge A \equiv \exists x(P(x) \wedge A)\)</span>
 (5) <span class="arithmatex">\(\quad \forall x(A \rightarrow P(x)) \equiv A \rightarrow \forall x P(x)\)</span>
-(6) <span class="arithmatex">\(\existsssss x(A \rightarrow P(x)) \equiv A \rightarrow \existsssss x P(x)\)</span>
-(7) <span class="arithmatex">\(\forall x(P(x) \rightarrow A) \equiv \existsssss x P(x) \rightarrow A\)</span>
-(8) <span class="arithmatex">\(\quad \existsssss x(P(x) \rightarrow A) \equiv \forall x P(x) \rightarrow A\)</span>
+(6) <span class="arithmatex">\(\exists x(A \rightarrow P(x)) \equiv A \rightarrow \exists x P(x)\)</span>
+(7) <span class="arithmatex">\(\forall x(P(x) \rightarrow A) \equiv \exists x P(x) \rightarrow A\)</span>
+(8) <span class="arithmatex">\(\quad \exists x(P(x) \rightarrow A) \equiv \forall x P(x) \rightarrow A\)</span>
 where the truth value of <span class="arithmatex">\(A\)</span> is not related to </p>
 <p>记忆方法：除了A做结果的时候改变量词，其他与、或等都可以直接提出括号</p>
 <p>Proof:
 (1)-(4) Discuss the truth value of A
 (5)-(8) Use the <strong>implication law</strong></p>
-<p><span class="arithmatex">\(\existsssss x (\neg P(x)\vee A)=\existssss x \neg P(x) \vee A=\neg(\forall x P(x))\vee A=\forall xP(x) \to A\)</span></p>
-<p><span class="arithmatex">\(\existsssss x (P(x) \to Q(x))=\existssss (\neg P(x) \wedge Q(x))\)</span></p>
+<p><span class="arithmatex">\(\exists x (\neg P(x)\vee A)=\exists x \neg P(x) \vee A=\neg(\forall x P(x))\vee A=\forall xP(x) \to A\)</span></p>
+<p><span class="arithmatex">\(\exists x (P(x) \to Q(x))=\exists (\neg P(x) \wedge Q(x))\)</span></p>
 <h2 id="15-nested-quantifiers">1.5 Nested Quantifiers</h2>
-<p><span class="arithmatex">\(\forall x \existssss y P(x,y) \neq \existssss x \forall y P(x,y)\)</span>. etc. <span class="arithmatex">\(P(x,y)=x\)</span> loves <span class="arithmatex">\(y\)</span></p>
+<p><span class="arithmatex">\(\forall x \exists y P(x,y) \neq \exists x \forall y P(x,y)\)</span>. etc. <span class="arithmatex">\(P(x,y)=x\)</span> loves <span class="arithmatex">\(y\)</span></p>
 <p>Negation: 交换符号、最后的条件否定</p>
 <p>Prenex Normal Form:</p>
 <p><img alt="b57e71faf9ccc5ca734fd0c945a10e74.png" src="..\..\assets/images/b57e71faf9ccc5ca734fd0c945a10e74.png"/></p>
@@ -1172,14 +1172,14 @@ where the truth value of <span class="arithmatex">\(A\)</span> is not related to
 <p><span class="arithmatex">\(\forall x(P(x) \to Q(x))\)</span>, where the domain of <span class="arithmatex">\(x\)</span> is all animal</p>
 <p>Note that we <strong>can't write</strong> <span class="arithmatex">\(\forall (P(x) \wedge Q(x))\)</span>, which means all animals are lions and all animals are fierce</p>
 <p>Some students in the class have visited Mexico</p>
-<p><span class="arithmatex">\(\existssss x(P(x)\wedge Q(x))\)</span>, where the domain of <span class="arithmatex">\(x\)</span> is all people</p>
-<p>Note that we can't write <span class="arithmatex">\(\existssss (P(x) \to Q(x))\)</span>, because there can be <span class="arithmatex">\(x\)</span> that <span class="arithmatex">\(P(x)=F,Q(x)=T\)</span></p>
+<p><span class="arithmatex">\(\exists x(P(x)\wedge Q(x))\)</span>, where the domain of <span class="arithmatex">\(x\)</span> is all people</p>
+<p>Note that we can't write <span class="arithmatex">\(\exists (P(x) \to Q(x))\)</span>, because there can be <span class="arithmatex">\(x\)</span> that <span class="arithmatex">\(P(x)=F,Q(x)=T\)</span></p>
 <p><img alt="c53c25b3a4abd562faf25c82fc8a7f2e.png" src="..\..\assets/images/c53c25b3a4abd562faf25c82fc8a7f2e.png" style="zoom:33%;"/></p>
 <p>Nested Quantifiers</p>
-<p>There is only one <span class="arithmatex">\(x\)</span> that <span class="arithmatex">\(P(x)\)</span>.  <span class="arithmatex">\(\existssss x\forall y(x=y\leftrightarrow P(y))\)</span></p>
-<p>or <span class="arithmatex">\(\existssss x\forall y(P(x)\wedge(x\neq y \to \neg P(y)))\)</span></p>
-<p>Everyone except one <span class="arithmatex">\(x\)</span> that <span class="arithmatex">\(P(x)\)</span>. <span class="arithmatex">\(\existssss x\forall y(x\neq y\leftrightarrow P(x))\)</span></p>
-<p>There is at least 2  <span class="arithmatex">\(\existssss x \existssss y (x \neq y \wedge P(x) \wedge P(y))\)</span></p>
+<p>There is only one <span class="arithmatex">\(x\)</span> that <span class="arithmatex">\(P(x)\)</span>.  <span class="arithmatex">\(\exists x\forall y(x=y\leftrightarrow P(y))\)</span></p>
+<p>or <span class="arithmatex">\(\exists x\forall y(P(x)\wedge(x\neq y \to \neg P(y)))\)</span></p>
+<p>Everyone except one <span class="arithmatex">\(x\)</span> that <span class="arithmatex">\(P(x)\)</span>. <span class="arithmatex">\(\exists x\forall y(x\neq y\leftrightarrow P(x))\)</span></p>
+<p>There is at least 2  <span class="arithmatex">\(\exists x \exists y (x \neq y \wedge P(x) \wedge P(y))\)</span></p>
 <p><img alt="8843f1a6e3bc564354568972396f41d3.png" src="..\..\assets/images/8843f1a6e3bc564354568972396f41d3.png"/></p>
 <p><img alt="180dd8a23a5e5c5f9499f808d5aa5d13.png" src="..\..\assets/images/180dd8a23a5e5c5f9499f808d5aa5d13.png"/></p>
 <p>翻译成英文之后不要出现x,y,z等字母</p>
@@ -1196,8 +1196,8 @@ where the truth value of <span class="arithmatex">\(A\)</span> is not related to
 <p><span class="arithmatex">\(p \vee q,\neg p \vee r ,\neg q \vee s\)</span>. 先对1,3，再对2用resolution</p>
 <h3 id="rules-of-inference-for-quantified-statements">Rules of inference for Quantified Statements</h3>
 <p><img alt="970e28c212d724abce7c882c87ebba1f.png" src="..\..\assets/images/970e28c212d724abce7c882c87ebba1f.png"/></p>
-<p>A:<span class="arithmatex">\(\forall x \existssss y P(x,y)\)</span>
-B:<span class="arithmatex">\(\existssss x\forall y P(x,y)\)</span>
+<p>A:<span class="arithmatex">\(\forall x \exists y P(x,y)\)</span>
+B:<span class="arithmatex">\(\exists x\forall y P(x,y)\)</span>
 A不能推出B，B可以推出A</p>
 <h2 id="proofs">Proofs</h2>
 <p>Terminology:
