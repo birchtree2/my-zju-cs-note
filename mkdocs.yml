@@ -1,9 +1,12 @@
 site_name: 时雨的笔记本
 theme:
   name: material
+  custom_dir: overrides # 上面两行都是以前就有的，把最后一行加进去，注意是theme下的子项
   features:
     - content.code.copy #代码块支持复制
     - navigation.indexes #index.md 设置每个栏目的介绍
+  palette:
+    scheme: slate
 plugins: 
   - search #搜索
 use_directory_urls: false

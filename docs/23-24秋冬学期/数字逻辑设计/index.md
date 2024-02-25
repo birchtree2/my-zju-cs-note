@@ -1,9 +1,12 @@
+---
+comments: true
+---
 教师： 马德
 
 ## 参考资料
 
 - 修佬的笔记：https://note.isshikih.top/cour_note/D2QD_DigitalDesign/
-- 
+  
 
 ## 实验
 数逻课程组还不学学计组换vivado(恼)，只能折腾老掉牙的ISE

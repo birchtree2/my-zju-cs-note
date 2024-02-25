@@ -1,3 +1,6 @@
+---
+comments: true
+---
 ## 课程介绍
 
 教师：崔兆鹏
@@ -11,6 +14,8 @@
 
 
 ## 参考资料
+
+因为ZJU这门课的内容比较少而且标准有些老旧了，可参考[CS106L](https://csdiy.wiki/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/CS106L/)
 
 笔记： [hobbitqia](https://note.hobbitqia.cc/OOP/)
 

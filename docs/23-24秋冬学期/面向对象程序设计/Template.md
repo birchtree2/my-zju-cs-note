@@ -1,3 +1,6 @@
+---
+comments: true
+---
 ## Function template
 
 模板:  类型必须严格对应,不能转换  如`swap(int,double)` 会报错

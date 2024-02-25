@@ -1,3 +1,6 @@
+---
+comments: true
+---
 [TOC]
 ## Function in C++
 ### lifecycle/scope
